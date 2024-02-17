@@ -5,25 +5,40 @@
   <div class="md:w-6/12 h-full bg-bone">
     <section class="flex items-center justify-center h-full">
       <div class="formContainer anton w-[80%]">
-        <h2 class="text-4xl text-pinkDarker uppercase mt-10 md:mt-0">Contact Us</h2>
+        <h2 class="text-4xl text-pinkDarker uppercase mt-10 md:mt-0">
+          Contact Us
+        </h2>
         <p class="montserrat text-black mb-5 mt-2">
           LEAVE US YOUR DETAILS AND A MESSAGE AND WE WILL GET BACK TO YOU AS
           SOON AS POSSIBLE.
         </p>
-        <form class="text-pinkMain text-xl mb-10 md:mb-0">
+        <form
+          class="text-pinkMain text-xl mb-10 md:mb-0"
+          (ngSubmit)="submitForm()"
+          #contactForm="ngForm"
+        >
           <div class="mb-3 flex flex-col">
-            <label for="exampleFormControlInput1" class="form-label"
-              >Email address</label
-            >
+            <label for="email" class="form-label">Email address</label>
             <input
               type="email"
               class="form-control text-black text-base pl-2"
-              id="exampleFormControlInput1"
+              id="input"
+              name="email"
+              [(ngModel)]="formData.email"
+              required
             />
           </div>
           <div class="mb-3 flex flex-col">
             <label for="nameInput" class="form-label">Name</label>
-            <input class="form-control text-black text-base pl-2" type="text" id="nameInput" />
+            <input
+              class="form-control text-black text-base pl-2"
+              type="text"
+              id="nameInput"
+              name="username"
+              [(ngModel)]="formData.name"
+              required
+              pattern="[a-zA-Z]+"
+            />
           </div>
           <div class="mb-3 flex flex-col">
             <label for="exampleFormControlTextarea1" class="form-label"
@@ -33,10 +48,15 @@
               class="form-control text-black text-base pl-2"
               id="exampleFormControlTextarea1"
               rows="3"
+              name="message"
+              [(ngModel)]="formData.message"
+              required
             ></textarea>
           </div>
           <button
             class="h-[50px] w-full md:w-2/12 rounded-lg text-bone bg-pinkMain mt-10 darkerButton"
+            [disabled]="contactForm.invalid"
+            [ngClass]="contactForm.invalid ? 'brightness-50' : 'bg-pinkDarker button cursor-pointer'"
           >
             Submit
           </button>
@@ -50,7 +70,9 @@
       src="../../../assets/mariamFood.jpg"
       alt=""
     />
-    <div class="absolute z-50 -translate-x-2/4 -translate-y-1/2 top-1/2 left-2/4">
+    <div
+      class="absolute z-50 -translate-x-2/4 -translate-y-1/2 top-1/2 left-2/4"
+    >
       <h4 class="uppercase anton text-4xl text-bone mb-3">
         Or reach us directly:
       </h4>
