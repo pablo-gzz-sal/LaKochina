@@ -1,0 +1,127 @@
+<app-header class="hidden md:block"></app-header>
+<app-header-mobile class="md:hidden"></app-header-mobile>
+<section class="md:h-screen w-full bg-pinkMain">
+  <div class="anton flex flex-col md:flex-row items-center h-full pt-[140px] md:pt-20">
+    <span class="flex flex-col">
+      <h1 class="text-6xl md:text-[120px] ml-5 leading-none">
+        FLAVORS CRAFTED WITH PASSION IN AUSTIN, TX
+      </h1>
+      <h3 class="text-3xl md:text-[35px] ml-5 mt-5 md:mt-10">AUTHENTIC MEXICAN CUISINE</h3>
+    </span>
+    <img
+      class="h-[30%] w-[80%] mb-10 md:mb-0 md:h-[70%] md:w-[750px] mt-10 md:mt-0 md:mr-[100px] rounded overflow-hidden"
+      src="../../../assets/allFood.jpg"
+      alt="all food"
+    />
+  </div>
+</section>
+<section class="md:h-screen w-full bg-bone flex flex-col md:flex-row items-center">
+  <div
+    class="w-full md:w-6/12 flex flex-col bg-pinkDarker h-full justify-center items-center"
+  >
+    <h2 class="anton text-white text-6xl md:text-8xl mt-10 md:mt-0">Cochinita Pibil</h2>
+    <img
+      src="../../../assets/tacoCochinita.png"
+      alt="taco of cochinita"
+      class="h-[250px] md:h-[300px] w-fit mt-10 mb-10 md:mb-0 md:mt-20"
+    />
+  </div>
+  <div class="w-full md:w-6/12 flex flex-col items-center md:items-start md:px-20">
+    <h2 class="anton text-pinkMain text-5xl md:text-8xl mb-5 mt-10 md:mt-0 text-center md:text-start">
+      EXPERIENCE OUR EXQUISITE COCHINITA TACOS
+    </h2>
+    <p class="montserrat mx-5 md:mx-0">
+      Discover the taste of tradition with our Cochinita Pibil, a slow-roasted
+      Mayan pork dish from the Yucatán Peninsula. Marinated in citrus juice,
+      annatto seed, and roasted in a píib wrapped in banana leaf. Served with
+      pickles, onions, and green salsa, it's perfect over rice or in a taco.
+    </p>
+    <button class="h-[50px] w-11/12 md:w-4/12 rounded-lg text-white bg-pinkMain mt-10 mb-10 md:mb-0" (click)="onMenu()">
+      View Our Menu
+    </button>
+  </div>
+</section>
+<app-scrolling-banner></app-scrolling-banner>
+<section class="md:h-screen w-full bg-bone flex flex-col md:flex-row items-center">
+  <div
+    class="w-full md:w-6/12 flex flex-col bg-pinkMain h-full justify-center items-center"
+  >
+    <h2 class="anton text-white text-5xl md:text-8xl mt-10 md:mt-0">CHICHARRON</h2>
+    <img
+      src="../../../assets/chicharronTaco.png"
+      alt="taco of cochinita"
+      class="h-[250px] md:h-[300px] w-fit mt-10 mb-10 md:mb-0 md:mt-20"
+    />
+  </div>
+  <div class="w-full md:w-6/12 flex flex-col md:px-20 items-center md:items-start">
+    <h2 class="anton text-pinkDarker md:text-8xl mb-5 text-5xl md:text-8xl mt-10 md:mt-0 text-center md:text-start">
+      TASTE OUR DELICIOUS CHICHARRON TACOS
+    </h2>
+    <p class="montserrat mx-5 md:mx-0">
+      Indulge in the timeless delight of Classic Chicharron, deep-fried pork skin, typically sourced from pork belly. Seasoned to perfection and traditionally fried in its own lard, the result is a crispy and flavorful treat. Our Chicharron is accompanied by chipotle salsa, fresh cilantro, and onions. Transform your experience with Chicharron Carnitas, a popular choice for crafting mouthwatering tacos.
+    </p>
+    <button class="h-[50px] w-11/12 md:w-4/12 rounded-lg text-white bg-pinkMain mt-10 mb-10 md:mb-0" (click)="onMenu()">
+      View Our Menu
+    </button>
+  </div>
+</section>
+<app-scrolling-banner></app-scrolling-banner>
+<section class="md:h-screen w-full bg-bone flex items-center flex flex-col md:flex-row items-center">
+  <div class="md:w-6/12 flex flex-col h-full justify-center items-center">
+    <img
+      src="../../../assets/stand.JPG"
+      alt="taco of cochinita"
+      class="h-full w-full object-cover w-full"
+    />
+  </div>
+  <div class="md:w-6/12 flex flex-col h-full md:px-20 bg-pinkDarker justify-center items-center md:items-start">
+    <h2 class="anton text-bone text-6xl md:text-8xl mt-5 md:mt-0 mb-5 text-center md:text-start">
+      FIND US AT THE CIRCLE C FARMERS MARKET
+    </h2>
+    <p class="montserrat uppercase text-white mx-5 md:mx-0">
+      Come visit our tent on Friday’s from 3 to 6 pm at the Circle C Farmers
+      Market located at 7817 Lacrosse Ave. Austin, TX, United States.
+    </p>
+    <a href="https://maps.app.goo.gl/PEo1aHcrhJUhhC858" target="_blank" class="w-full text-center md:text-start">
+    <button class="h-[50px] w-11/12 md:w-4/12 rounded-lg text-pinkDarker bg-bone darkerButton mt-10 mb-10 md:mb-0">
+      Open Google Maps
+    </button>
+  </a>
+  </div>
+</section>
+<app-scrolling-banner [infoBanner]="infoBannerInsta"></app-scrolling-banner>
+<section class="md:h-[110vh] w-full bg-bone  flex items-center flex flex-col items-center">
+  <div
+    class="w-full flex flex-col h-full justify-start items-center text-center mt-20"
+  >
+    <h2 class="uppercase anton md:w-[80%] text-pinkMain text-5xl md:text-7xl">
+      "I wanted to bring authentic interior-Mexican cuisine from my homeland"
+    </h2>
+    <p class="anton uppercase text-pinkMain text-xl md:text-4xl mt-5">
+      - Mariam O'donnell
+    </p>
+  </div>
+  <div class="flex flex-col md:flex-row justify-center items-center w-full mb-20">
+    <img
+      src="../../../assets/mariamFood.jpg"
+      alt="Owner of la Kochina"
+      class="h-[400px] mt-10 md:mt-0 w-[300px] object-cover rounded"
+    />
+    <span class="flex flex-col md:w-[500px] md:ml-20 items-center md:items-start">
+      <p class="montserrat mx-5 md:mx-0 mt-5 md:mt-0">
+        Mariam O’Donnell (Founder/Owner) is a graduate of the Le Cordon Bleu
+        College of Culinary Arts in Austin, TX. Mariam was driven to bring
+        authentic interior-Mexican cuisine from her homeland. From this, La
+        Kochina was born.
+      </p>
+      <p class="montserrat mt-5 mx-5 md:mx-0">Our service includes specialties ranging from
+        Cochinita Pibil, Chicharon, homemade salsas, guacamole, and desserts. We
+        provide catering for small and large events with partial or full service
+        options. Delivery is available.</p>
+      <button class="h-[50px] w-11/12 md:w-4/12 rounded-lg text-white bg-pinkMain mt-10 mb-10 md:mb-0" (click)="onContact()">
+        Contact Us
+      </button>
+    </span>
+  </div>
+</section>
+<app-footer></app-footer>

@@ -1,0 +1,12 @@
+<header class="bg-gray-800 text-white p-4 flex justify-between items-center absolute w-full">
+    <div class="logo">
+      <img src="../../../assets/logo.jpeg" alt="Logo" class="max-h-20 cursor-pointer rounded-lg" (click)="onHome()">
+    </div>
+    <nav>
+      <ul class="flex anton items-center uppercase pointer text-lg cursor-pointer ">
+        <li class="mr-10"><a (click)="onHome()" class="text-white hover:text-gray-400">Home</a></li>
+        <li class="mr-10"><a (click)="onMenu()" class="text-white hover:text-gray-400">Menu</a></li>
+        <button (click)="onContact()" class="uppercase bg-bone rounded-full w-[170px] h-[70px] text-pinkMain">Contact us</button>
+      </ul>
+    </nav>
+  </header>

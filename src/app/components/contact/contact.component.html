@@ -1,0 +1,62 @@
+<app-header class="hidden md:block"></app-header>
+<app-header-mobile class="md:hidden"></app-header-mobile>
+<section class="h-[15vh] bg-pinkDarker"></section>
+<section class="md:h-[85vh] flex flex-col md:flex-row">
+  <div class="md:w-6/12 h-full bg-bone">
+    <section class="flex items-center justify-center h-full">
+      <div class="formContainer anton w-[80%]">
+        <h2 class="text-4xl text-pinkDarker uppercase mt-10 md:mt-0">Contact Us</h2>
+        <p class="montserrat text-black mb-5 mt-2">
+          LEAVE US YOUR DETAILS AND A MESSAGE AND WE WILL GET BACK TO YOU AS
+          SOON AS POSSIBLE.
+        </p>
+        <form class="text-pinkMain text-xl mb-10 md:mb-0">
+          <div class="mb-3 flex flex-col">
+            <label for="exampleFormControlInput1" class="form-label"
+              >Email address</label
+            >
+            <input
+              type="email"
+              class="form-control text-black text-base pl-2"
+              id="exampleFormControlInput1"
+            />
+          </div>
+          <div class="mb-3 flex flex-col">
+            <label for="nameInput" class="form-label">Name</label>
+            <input class="form-control text-black text-base pl-2" type="text" id="nameInput" />
+          </div>
+          <div class="mb-3 flex flex-col">
+            <label for="exampleFormControlTextarea1" class="form-label"
+              >Message</label
+            >
+            <textarea
+              class="form-control text-black text-base pl-2"
+              id="exampleFormControlTextarea1"
+              rows="3"
+            ></textarea>
+          </div>
+          <button
+            class="h-[50px] w-full md:w-2/12 rounded-lg text-bone bg-pinkMain mt-10 darkerButton"
+          >
+            Submit
+          </button>
+        </form>
+      </div>
+    </section>
+  </div>
+  <div class="md:w-6/12 h-full bg-pinkMain relative">
+    <img
+      class="h-[500px] md:h-full w-auto object-cover brightness-50"
+      src="../../../assets/mariamFood.jpg"
+      alt=""
+    />
+    <div class="absolute z-50 -translate-x-2/4 -translate-y-1/2 top-1/2 left-2/4">
+      <h4 class="uppercase anton text-4xl text-bone mb-3">
+        Or reach us directly:
+      </h4>
+      <p class="text-xl text-bone">mariamodonnell213&commat;gmail.com</p>
+      <p class="text-xl text-bone">(512) 758-5296</p>
+    </div>
+  </div>
+</section>
+<app-footer></app-footer>

@@ -1,0 +1,11 @@
+button {
+    box-shadow: -9px 4px 1px 3px #78344E;
+}
+
+button:hover {
+    filter: brightness(.8);
+}
+
+.darkerButton {
+    box-shadow: -9px 4px 1px 3px #f9659f !important;
+}
