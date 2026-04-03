@@ -1,37 +1,31 @@
-<nav class="text-white p-4 flex justify-between items-center absolute w-full">
+<nav class="text-white px-5 py-4 flex justify-between items-center fixed w-full z-50 mobile-header">
   <div class="flex items-center justify-between w-full">
     <div class="logo">
-      <img src="../../../assets/logo.jpeg" alt="Logo" class="max-h-20 cursor-pointer rounded-lg" (click)="onHome()">
+      <img src="../../../assets/logo.jpeg" alt="Logo" class="max-h-14 cursor-pointer rounded-xl" (click)="onHome()">
     </div>
     <button
-      class="lg:hidden text-white focus:outline-none"
+      class="text-white focus:outline-none p-2"
       (click)="toggleMenu()"
-      [@burgerMenuAnimation]="showMenu ? 'open' : 'closed'"
     >
-      <svg
-        class="w-6 h-6"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M4 6h16M4 12h16m-7 6h7"
-        ></path>
+      <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
       </svg>
     </button>
   </div>
 </nav>
 
-<section *ngIf="showMenu" class="absolute w-full h-screen bg-bone z-50">
-  <span (click)="toggleMenu()" class="absolute text-3xl text-pinkMain -translate-x-2/4 -translate-y-1/2 top-[8%] left-[85%]"><i class="fas fa-times-circle" style="color: #f9659f;"></i></span>
-  <div  class="absolute text-3xl text-pinkMain -translate-x-2/4 -translate-y-1/2 top-1/2 left-2/4 uppercase">
-    <!-- Add your menu items here -->
-    <a (click)="onHome()" class="block  py-2">Home</a>
-    <a (click)="onMenu()" class="block py-2">Menu</a>
-    <a (click)="onContact()" class="block py-2">Contact</a>
+<section *ngIf="showMenu" [@burgerMenuAnimation]="showMenu ? 'open' : 'closed'" class="fixed w-full h-screen bg-dark z-50 flex flex-col">
+  <div class="flex justify-between items-center px-5 py-4 border-b border-pinkMain/20">
+    <img src="../../../assets/logo.jpeg" alt="Logo" class="max-h-14 rounded-xl" (click)="onHome(); toggleMenu()">
+    <button (click)="toggleMenu()" class="text-pinkMain text-4xl leading-none">&times;</button>
+  </div>
+  <div class="flex flex-col justify-center flex-1 px-8 gap-8 anton uppercase text-4xl">
+    <a (click)="onHome(); toggleMenu()" class="text-white hover:text-pinkMain transition-colors duration-300 block">Home</a>
+    <a (click)="onMenu(); toggleMenu()" class="text-white hover:text-pinkMain transition-colors duration-300 block">Menu</a>
+    <a (click)="onContact(); toggleMenu()" class="text-white hover:text-pinkMain transition-colors duration-300 block">Contact</a>
+    <a (click)="onBookStand(); toggleMenu()" class="text-pinkMain block">Book Our Stand ✦</a>
+  </div>
+  <div class="px-8 py-8">
+    <p class="montserrat text-white/40 text-sm">mariamodonnell213&#64;gmail.com · (512) 758-5296</p>
   </div>
 </section>

@@ -1,14 +1,18 @@
-import { Component, OnInit, Renderer2 } from '@angular/core';
+import { Component, OnInit, AfterViewInit, OnDestroy, Renderer2 } from '@angular/core';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
 import { HeaderMobileComponent } from '../header-mobile/header-mobile.component';
-import { Router, NavigationEnd, NavigationStart } from '@angular/router';
+import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { filter, switchMap } from 'rxjs/operators';
 import { timer } from 'rxjs';
 import { ContactService } from 'src/app/services/contact.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { Contact } from 'src/app/models/contact.model';
+import { Contact, QuoteRequest } from 'src/app/models/contact.model';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 @Component({
   selector: 'app-contact',
@@ -17,52 +21,127 @@ import { Contact } from 'src/app/models/contact.model';
   styleUrl: './contact.component.scss',
   imports: [HeaderComponent, FooterComponent, HeaderMobileComponent, FormsModule, CommonModule],
 })
-export class ContactComponent implements OnInit {
-  formData: Contact = {
-    name: '',
-    email: '',
-    message: '',
-  };
+export class ContactComponent implements OnInit, AfterViewInit, OnDestroy {
+  activeTab: 'contact' | 'quote' = 'contact';
+  contactSuccess = false;
+  quoteSuccess = false;
 
-  formDisabled: boolean = true;
+  formData: Contact = { name: '', email: '', message: '' };
+
+  quoteData: QuoteRequest = {
+    name: '', email: '', phone: '',
+    eventType: '', eventDate: '',
+    guestCount: 0, eventLocation: '', message: ''
+  };
 
   constructor(
     private router: Router,
+    private activatedRoute: ActivatedRoute,
     private renderer: Renderer2,
     private contactService: ContactService
   ) {}
 
   ngOnInit() {
-    this.formDisabled = true;
     this.renderer.removeClass(document.body, 'menu-opened');
+
+    // Read ?tab=quote query param to auto-switch tab
+    this.activatedRoute.queryParams.subscribe(params => {
+      if (params['tab'] === 'quote') {
+        this.activeTab = 'quote';
+      }
+    });
+
     this.router.events
       .pipe(
         filter((event) => event instanceof NavigationEnd),
         switchMap(() => timer(600))
       )
-      .subscribe(() => {
-        window.scrollTo(0, 0);
-      });
+      .subscribe(() => window.scrollTo(0, 0));
+  }
+
+  ngAfterViewInit() {
+    setTimeout(() => {
+      this.animatePageIn();
+      this.animateInfoPanel();
+    }, 100);
+  }
+
+  private animatePageIn() {
+    gsap.set('.contact-hero h1', { y: 30, opacity: 0 });
+    gsap.set('.contact-hero p', { y: 20, opacity: 0 });
+    gsap.set('.tab-switcher', { y: 20, opacity: 0 });
+
+    gsap.timeline({ delay: 0.2 })
+      .to('.contact-hero h1', { y: 0, opacity: 1, duration: 0.7, ease: 'power3.out' })
+      .to('.contact-hero p', { y: 0, opacity: 1, duration: 0.5, ease: 'power3.out' }, '-=0.3')
+      .to('.tab-switcher', { y: 0, opacity: 1, duration: 0.5, ease: 'power3.out' }, '-=0.2');
+
+    this.animateFormFields();
+  }
+
+  private animateFormFields() {
+    const fields = document.querySelectorAll('.form-field, .form-heading, .form-sub, .submit-btn');
+    gsap.set(fields, { y: 20, opacity: 0 });
+    gsap.to(fields, {
+      y: 0, opacity: 1,
+      duration: 0.5,
+      stagger: 0.07,
+      ease: 'power3.out',
+      delay: 0.5
+    });
+  }
+
+  private animateInfoPanel() {
+    gsap.set('.info-overlay', { y: 30, opacity: 0 });
+    gsap.to('.info-overlay', {
+      y: 0, opacity: 1, duration: 0.9, ease: 'power3.out', delay: 0.6
+    });
+
+    gsap.to('.contact-img', {
+      yPercent: 10,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '.contact-img',
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: 1.5
+      }
+    });
+  }
+
+  setTab(tab: 'contact' | 'quote') {
+    if (this.activeTab === tab) return;
+    this.activeTab = tab;
+    this.contactSuccess = false;
+    this.quoteSuccess = false;
+    setTimeout(() => this.animateFormFields(), 50);
   }
 
   submitForm() {
     this.contactService.addContact(this.formData).subscribe(
-      (response) => {
-        console.log('Contact added successfully:', response);
-        this.resetForm();
-        this.formDisabled = false;
+      () => {
+        this.contactSuccess = true;
+        this.formData = { name: '', email: '', message: '' };
       },
-      (error) => {
-        console.error('Error adding contact:', error);
-      }
+      (error) => console.error('Error:', error)
     );
   }
 
-  resetForm() {
-    this.formData = {
-      name: '',
-      email: '',
-      message: '',
-    };
+  submitQuote() {
+    this.contactService.addQuote(this.quoteData).subscribe(
+      () => {
+        this.quoteSuccess = true;
+        this.quoteData = {
+          name: '', email: '', phone: '',
+          eventType: '', eventDate: '',
+          guestCount: 0, eventLocation: '', message: ''
+        };
+      },
+      (error) => console.error('Error:', error)
+    );
+  }
+
+  ngOnDestroy() {
+    ScrollTrigger.getAll().forEach(st => st.kill());
   }
 }

@@ -1,7 +1,48 @@
-button {
-    box-shadow: -9px 4px 1px 3px #78344E;
+.tab-btn {
+    background: none;
+    border: none;
+    box-shadow: none;
+    cursor: pointer;
+
+    &:hover {
+        filter: none;
+    }
 }
 
-.button:hover {
-    filter: brightness(.8);
+.tab-active {
+    border-bottom: 3px solid #f9659f !important;
+    color: #f9659f !important;
+}
+
+.submit-btn {
+    box-shadow: 0 4px 20px rgba(249, 101, 159, 0.3);
+    cursor: pointer;
+
+    &:hover:not(:disabled) {
+        box-shadow: 0 6px 30px rgba(249, 101, 159, 0.5);
+        transform: translateY(-1px);
+    }
+
+    &:active:not(:disabled) {
+        transform: scale(0.98);
+    }
+}
+
+.success-msg {
+    color: #3a9e5c;
+    font-weight: 600;
+}
+
+select.form-input {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23f9659f'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
+    padding-right: 40px;
+}
+
+input[type="date"].form-input {
+    color-scheme: light;
 }
