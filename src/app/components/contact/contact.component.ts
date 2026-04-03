@@ -34,8 +34,6 @@ export class ContactComponent implements OnInit {
 
   ngOnInit() {
     this.formDisabled = true;
-    console.log(this.formDisabled);
-    
     this.renderer.removeClass(document.body, 'menu-opened');
     this.router.events
       .pipe(
