@@ -1,12 +1,17 @@
-<header class="bg-gray-800 text-white p-4 flex justify-between items-center absolute w-full">
-    <div class="logo">
-      <img src="../../../assets/logo.jpeg" alt="Logo" class="max-h-20 cursor-pointer rounded-lg" (click)="onHome()">
-    </div>
-    <nav>
-      <ul class="flex anton items-center uppercase pointer text-lg cursor-pointer ">
-        <li class="mr-10"><a (click)="onHome()" class="text-white hover:text-gray-400">Home</a></li>
-        <li class="mr-10"><a (click)="onMenu()" class="text-white hover:text-gray-400">Menu</a></li>
-        <button (click)="onContact()" class="uppercase bg-bone rounded-full w-[170px] h-[70px] text-pinkMain">Contact us</button>
-      </ul>
-    </nav>
-  </header>
+<header class="text-white px-6 py-4 flex justify-between items-center fixed w-full z-50 header-bar">
+  <div class="logo">
+    <img src="../../../assets/logo.jpeg" alt="Logo" class="max-h-16 cursor-pointer rounded-xl logo-img transition-transform duration-300 hover:scale-105" (click)="onHome()">
+  </div>
+  <nav>
+    <ul class="flex anton items-center uppercase text-sm cursor-pointer gap-8">
+      <li><a (click)="onHome()" class="text-white hover:text-pinkMain transition-colors duration-300 tracking-widest nav-link">Home</a></li>
+      <li><a (click)="onMenu()" class="text-white hover:text-pinkMain transition-colors duration-300 tracking-widest nav-link">Menu</a></li>
+      <li><a (click)="onContact()" class="text-white hover:text-pinkMain transition-colors duration-300 tracking-widest nav-link">Contact</a></li>
+      <li>
+        <button (click)="onBookStand()" class="book-btn bg-pinkMain text-white rounded-full px-6 py-3 text-sm tracking-widest hover:bg-pinkDarker transition-all duration-300">
+          Book Our Stand ✦
+        </button>
+      </li>
+    </ul>
+  </nav>
+</header>

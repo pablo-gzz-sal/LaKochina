@@ -1,84 +1,182 @@
 <app-header class="hidden md:block"></app-header>
 <app-header-mobile class="md:hidden"></app-header-mobile>
-<section class="h-[15vh] bg-pinkDarker"></section>
-<section class="md:h-[85vh] flex flex-col md:flex-row">
-  <div class="md:w-6/12 h-full bg-bone">
-    <section class="flex items-center justify-center h-full">
-      <div class="formContainer anton w-[80%]">
-        <h2 class="text-4xl text-pinkDarker uppercase mt-10 md:mt-0">
-          Contact Us
-        </h2>
-        <p class="montserrat text-black mb-5 mt-2">
-          LEAVE US YOUR DETAILS AND A MESSAGE AND WE WILL GET BACK TO YOU AS
-          SOON AS POSSIBLE.
-        </p>
-        <form
-          class="text-pinkMain text-xl mb-10 md:mb-0"
-          (ngSubmit)="submitForm()"
-          #contactForm="ngForm"
-        >
-          <div class="mb-3 flex flex-col">
-            <label for="email" class="form-label">Email address</label>
-            <input
-              type="email"
-              class="form-control text-black text-base pl-2"
-              id="input"
-              name="email"
-              [(ngModel)]="formData.email"
-              required
-            />
-          </div>
-          <div class="mb-3 flex flex-col">
-            <label for="nameInput" class="form-label">Name</label>
-            <input
-              class="form-control text-black text-base pl-2"
-              type="text"
-              id="nameInput"
-              name="username"
-              [(ngModel)]="formData.name"
-              required
-              pattern="[a-zA-Z]+"
-            />
-          </div>
-          <div class="mb-3 flex flex-col">
-            <label for="exampleFormControlTextarea1" class="form-label"
-              >Message</label
-            >
-            <textarea
-              class="form-control text-black text-base pl-2"
-              id="exampleFormControlTextarea1"
-              rows="3"
-              name="message"
-              [(ngModel)]="formData.message"
-              required
-            ></textarea>
-          </div>
-          <button
-            class="h-[50px] w-full md:w-2/12 rounded-lg text-bone bg-pinkMain mt-10 darkerButton"
-            [disabled]="contactForm.invalid"
-            [ngClass]="contactForm.invalid ? 'brightness-50' : 'bg-pinkDarker button cursor-pointer'"
-          >
-            Submit
-          </button>
-        </form>
-      </div>
-    </section>
+
+<!-- Page hero bar -->
+<section class="contact-hero h-[15vh] bg-dark flex items-end px-8 md:px-16 pb-6 pt-20" style="border-bottom: 1px solid rgba(249,101,159,0.2);">
+  <div>
+    <h1 class="anton text-white text-4xl md:text-5xl uppercase tracking-widest">Contact</h1>
+    <p class="playfair italic text-pinkMain text-sm mt-1">We'd love to hear from you</p>
   </div>
-  <div class="md:w-6/12 h-full bg-pinkMain relative">
-    <img
-      class="h-[500px] md:h-full w-auto object-cover brightness-50"
-      src="../../../assets/mariamFood.jpg"
-      alt=""
-    />
-    <div
-      class="absolute z-50 -translate-x-2/4 -translate-y-1/2 top-1/2 left-2/4"
-    >
-      <h4 class="uppercase anton text-4xl text-bone mb-3">
-        Or reach us directly:
-      </h4>
-      <p class="text-xl text-bone">mariamodonnell213&commat;gmail.com</p>
-      <p class="text-xl text-bone">(512) 758-5296</p>
+</section>
+
+<!-- Main content -->
+<section class="flex flex-col md:flex-row min-h-[85vh]">
+
+  <!-- LEFT: Forms -->
+  <div class="w-full md:w-6/12 bg-bone flex flex-col justify-start px-8 md:px-14 py-12">
+
+    <!-- Tab switcher -->
+    <div class="tab-switcher flex border-b border-gray-200 mb-8 gap-0">
+      <button
+        class="tab-btn anton uppercase tracking-widest text-sm pb-3 pr-8 transition-all duration-300"
+        [class.tab-active]="activeTab === 'contact'"
+        [class.text-pinkMain]="activeTab === 'contact'"
+        [class.text-gray-400]="activeTab !== 'contact'"
+        (click)="setTab('contact')"
+      >
+        General Inquiry
+      </button>
+      <button
+        class="tab-btn anton uppercase tracking-widest text-sm pb-3 px-4 transition-all duration-300 flex items-center gap-2"
+        [class.tab-active]="activeTab === 'quote'"
+        [class.text-pinkMain]="activeTab === 'quote'"
+        [class.text-gray-400]="activeTab !== 'quote'"
+        (click)="setTab('quote')"
+      >
+        Get a Quote <span class="text-amber">✦</span>
+      </button>
+    </div>
+
+    <!-- TAB 1: General Inquiry -->
+    <div *ngIf="activeTab === 'contact'" class="contact-form-wrap">
+      <h2 class="form-heading anton text-pinkDarker text-3xl uppercase mb-2">Say Hello</h2>
+      <p class="form-sub montserrat text-dark/60 text-sm mb-8">Leave us your details and we'll get back to you as soon as possible.</p>
+
+      <form (ngSubmit)="submitForm()" #contactForm="ngForm" class="flex flex-col gap-5">
+        <div class="form-field flex flex-col gap-1">
+          <label class="anton text-pinkMain text-sm uppercase tracking-widest">Name</label>
+          <input type="text" class="form-input" placeholder="Your name"
+            name="username" [(ngModel)]="formData.name" required pattern="[a-zA-Z ]+" />
+        </div>
+        <div class="form-field flex flex-col gap-1">
+          <label class="anton text-pinkMain text-sm uppercase tracking-widest">Email</label>
+          <input type="email" class="form-input" placeholder="your@email.com"
+            name="email" [(ngModel)]="formData.email" required />
+        </div>
+        <div class="form-field flex flex-col gap-1">
+          <label class="anton text-pinkMain text-sm uppercase tracking-widest">Message</label>
+          <textarea class="form-input resize-none" rows="5" placeholder="What's on your mind?"
+            name="message" [(ngModel)]="formData.message" required></textarea>
+        </div>
+        <button type="submit"
+          class="submit-btn mt-2 h-[52px] rounded-full text-white bg-pinkMain anton uppercase tracking-widest text-sm hover:bg-pinkDarker transition-all duration-300"
+          [disabled]="contactForm.invalid"
+          [class.opacity-50]="contactForm.invalid"
+          [class.cursor-not-allowed]="contactForm.invalid">
+          Send Message
+        </button>
+        <p *ngIf="contactSuccess" class="success-msg montserrat text-center text-sm mt-2">
+          ✓ Message sent! We'll be in touch soon.
+        </p>
+      </form>
+    </div>
+
+    <!-- TAB 2: Get a Quote -->
+    <div *ngIf="activeTab === 'quote'" class="quote-form-wrap">
+      <h2 class="form-heading anton text-pinkDarker text-3xl uppercase mb-2">Book Our Stand</h2>
+      <p class="form-sub montserrat text-dark/60 text-sm mb-8">Tell us about your event and we'll put together a custom quote.</p>
+
+      <form (ngSubmit)="submitQuote()" #quoteForm="ngForm" class="flex flex-col gap-5">
+        <div class="form-field grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="flex flex-col gap-1">
+            <label class="anton text-pinkMain text-sm uppercase tracking-widest">Name</label>
+            <input type="text" class="form-input" placeholder="Your name"
+              name="quoteName" [(ngModel)]="quoteData.name" required />
+          </div>
+          <div class="flex flex-col gap-1">
+            <label class="anton text-pinkMain text-sm uppercase tracking-widest">Email</label>
+            <input type="email" class="form-input" placeholder="your@email.com"
+              name="quoteEmail" [(ngModel)]="quoteData.email" required />
+          </div>
+        </div>
+        <div class="form-field grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="flex flex-col gap-1">
+            <label class="anton text-pinkMain text-sm uppercase tracking-widest">Phone</label>
+            <input type="tel" class="form-input" placeholder="(512) 000-0000"
+              name="quotePhone" [(ngModel)]="quoteData.phone" required />
+          </div>
+          <div class="flex flex-col gap-1">
+            <label class="anton text-pinkMain text-sm uppercase tracking-widest">Event Type</label>
+            <select class="form-input" name="quoteEventType" [(ngModel)]="quoteData.eventType" required>
+              <option value="" disabled selected>Select event type</option>
+              <option value="corporate">Corporate</option>
+              <option value="wedding">Wedding</option>
+              <option value="birthday">Birthday</option>
+              <option value="festival">Festival / Market</option>
+              <option value="private">Private Party</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-field grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="flex flex-col gap-1">
+            <label class="anton text-pinkMain text-sm uppercase tracking-widest">Event Date</label>
+            <input type="date" class="form-input" name="quoteEventDate"
+              [(ngModel)]="quoteData.eventDate" required />
+          </div>
+          <div class="flex flex-col gap-1">
+            <label class="anton text-pinkMain text-sm uppercase tracking-widest">No. of Guests</label>
+            <input type="number" class="form-input" placeholder="e.g. 80" min="30"
+              name="quoteGuestCount" [(ngModel)]="quoteData.guestCount" required />
+          </div>
+        </div>
+        <div class="form-field flex flex-col gap-1">
+          <label class="anton text-pinkMain text-sm uppercase tracking-widest">Event Location</label>
+          <input type="text" class="form-input" placeholder="Address or venue name"
+            name="quoteEventLocation" [(ngModel)]="quoteData.eventLocation" required />
+        </div>
+        <div class="form-field flex flex-col gap-1">
+          <label class="anton text-pinkMain text-sm uppercase tracking-widest">Special Requests</label>
+          <textarea class="form-input resize-none" rows="3"
+            placeholder="Dietary restrictions, menu preferences, anything else..."
+            name="quoteMessage" [(ngModel)]="quoteData.message"></textarea>
+        </div>
+        <button type="submit"
+          class="submit-btn mt-2 h-[52px] rounded-full text-white bg-pinkMain anton uppercase tracking-widest text-sm hover:bg-pinkDarker transition-all duration-300"
+          [disabled]="quoteForm.invalid"
+          [class.opacity-50]="quoteForm.invalid"
+          [class.cursor-not-allowed]="quoteForm.invalid">
+          Request My Quote ✦
+        </button>
+        <p *ngIf="quoteSuccess" class="success-msg montserrat text-center text-sm mt-2">
+          ✓ Quote request sent! We'll reach out within 24 hours.
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <!-- RIGHT: Info panel -->
+  <div class="w-full md:w-6/12 relative overflow-hidden min-h-[400px] md:min-h-0">
+    <img class="contact-img w-full h-full object-cover" src="../../../assets/mariamFood.jpg" alt="La Kochina" />
+    <div class="absolute inset-0 bg-gradient-to-t from-dark via-dark/70 to-dark/30"></div>
+
+    <div class="absolute bottom-0 left-0 right-0 p-8 md:p-12 info-overlay">
+      <h4 class="anton text-bone text-2xl uppercase tracking-widest mb-5">Or reach us directly</h4>
+      <div class="flex flex-col gap-3 mb-6">
+        <a href="mailto:mariamodonnell213@gmail.com" class="flex items-center gap-3 group">
+          <span class="w-10 h-10 rounded-full bg-pinkMain/20 flex items-center justify-center text-pinkMain group-hover:bg-pinkMain group-hover:text-white transition-all duration-300 text-sm">✉</span>
+          <span class="montserrat text-bone/80 text-sm group-hover:text-bone transition-colors duration-300">mariamodonnell213&#64;gmail.com</span>
+        </a>
+        <a href="tel:+15127585296" class="flex items-center gap-3 group">
+          <span class="w-10 h-10 rounded-full bg-pinkMain/20 flex items-center justify-center text-pinkMain group-hover:bg-pinkMain group-hover:text-white transition-all duration-300 text-sm">✆</span>
+          <span class="montserrat text-bone/80 text-sm group-hover:text-bone transition-colors duration-300">(512) 758-5296</span>
+        </a>
+      </div>
+      <div class="flex gap-4">
+        <a href="https://www.facebook.com/people/La-Kochina/100083732247789/" target="_blank"
+          class="w-10 h-10 rounded-full bg-pinkMain/20 flex items-center justify-center text-pinkMain hover:bg-pinkMain hover:text-white transition-all duration-300">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://www.instagram.com/lakochina512/" target="_blank"
+          class="w-10 h-10 rounded-full bg-pinkMain/20 flex items-center justify-center text-pinkMain hover:bg-pinkMain hover:text-white transition-all duration-300">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
+      <div class="mt-6 pt-6" style="border-top: 1px solid rgba(249,101,159,0.2);">
+        <p class="montserrat text-white/40 text-xs uppercase tracking-widest">Starting at $20/person · Min. 30 guests</p>
+      </div>
     </div>
   </div>
 </section>
+
 <app-footer></app-footer>

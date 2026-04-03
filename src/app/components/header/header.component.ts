@@ -24,4 +24,8 @@ export class HeaderComponent {
     this.route.navigate(['/menu'])
   }
 
+  onBookStand() {
+    this.route.navigate(['/contact'], { queryParams: { tab: 'quote' } })
+  }
+
 }

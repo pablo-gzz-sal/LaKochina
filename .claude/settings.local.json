@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -L https://raw.githubusercontent.com/nextlevelbuilder/ui-ux-pro-max-skill/main/skill.md -o ~/.claude/skills/ui-ux-pro-max.md)",
+      "Bash(npm install:*)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:api.github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(curl -s https://api.github.com/repos/nextlevelbuilder/ui-ux-pro-max-skill/contents/.claude/skills)",
+      "Bash(python3 -c \"import sys,json; data=json.load\\(sys.stdin\\); [print\\(d[''''name''''], d[''''type'''']\\) for d in data]\")",
+      "Bash(curl -s https://api.github.com/repos/nextlevelbuilder/ui-ux-pro-max-skill/contents/.claude/skills/design-system)",
+      "Bash(uipro init:*)",
+      "Bash(npx ng:*)",
+      "Bash(npx tailwindcss:*)"
+    ]
+  }
+}

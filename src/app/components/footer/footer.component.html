@@ -1,35 +1,53 @@
-<footer
-  class="bg-pinkDarker text-white p-5 flex flex-col md:flex-row items-center text-center md:text-start md:items-start pt-5 md:pt-20 md:h-[300px] justify-around"
->
-  <img
-    src="../../../assets/logo.jpeg"
-    alt="logo la Kochina"
-    class="w-[100px] rounded-lg cursor-pointer"
-    (click)="onHome()"
-  />
-  <div class="md:w-[30%]">
-    <h4 class="uppercase anton text-xl text-bone mb-1 md:mb-3 mt-4 md:mt-0">Give us a visit</h4>
-    <p class="text-lg text-bone underline">
-      <a href="https://maps.app.goo.gl/PEo1aHcrhJUhhC858" target="_blank">
-      Circle C Farmers Market located at 7817 Lacrosse Ave. Austin, TX
-    </a>
-    </p>
-    <p class="text-lg text-bone">Friday’s from 3 to 6 pm</p>
+<!-- Footer tagline bar -->
+<div class="bg-dark" style="border-top: 1px solid rgba(249,101,159,0.2); border-bottom: 1px solid rgba(249,101,159,0.1);">
+  <p class="playfair italic text-center text-white/40 text-sm py-4 tracking-wide">
+    Bringing Authentic Mexican Flavors to Austin Since 2019
+  </p>
+</div>
+
+<footer class="bg-dark text-white px-8 md:px-16 py-12 md:py-16 flex flex-col md:flex-row items-center md:items-start text-center md:text-start gap-10 md:gap-0 justify-between" style="border-top: 1px solid rgba(249,101,159,0.15);">
+  <!-- Logo + tagline -->
+  <div class="flex flex-col items-center md:items-start gap-3">
+    <img src="../../../assets/logo.jpeg" alt="logo la Kochina" class="w-[80px] rounded-xl cursor-pointer hover:opacity-80 transition-opacity duration-300" (click)="onHome()" />
+    <p class="montserrat text-white/40 text-xs max-w-[160px] leading-relaxed">Authentic Mexican cuisine · Austin, TX</p>
   </div>
+
+  <!-- Visit -->
   <div>
-    <h4 class="uppercase anton text-xl text-bone mb-1 md:mb-3 mt-4 md:mt-0">For Inquiries</h4>
-    <p class="text-lg text-bone">mariamodonnell213&commat;gmail.com</p>
-    <p class="text-lg text-bone">(512) 758-5296</p>
+    <h4 class="uppercase anton text-sm text-pinkMain tracking-widest mb-3">Give Us a Visit</h4>
+    <a href="https://maps.app.goo.gl/PEo1aHcrhJUhhC858" target="_blank" class="montserrat text-bone/70 hover:text-bone text-sm transition-colors duration-300 block mb-1 underline underline-offset-2">
+      Circle C Farmers Market<br />7817 Lacrosse Ave. Austin, TX
+    </a>
+    <p class="montserrat text-bone/50 text-sm">Fridays · 3 to 6 pm</p>
   </div>
+
+  <!-- Contact -->
   <div>
-    <h4 class="uppercase anton text-xl text-bone  mb-1 md:mb-3 mt-4 md:mt-0">Check Us Out</h4>
-    <div class="flex md:flex-col ">
-    <a href="https://www.facebook.com/people/La-Kochina/100083732247789/" target="_blank" class="mb-2 text-2xl mr-5 md:mr-0" > 
-      <i class="fab fa-facebook-f" ></i>
-    </a>
-    <a href="https://www.instagram.com/lakochina512/" target="_blank" class="text-2xl" >
-      <i class="fab fa-instagram"></i>
-    </a>
+    <h4 class="uppercase anton text-sm text-pinkMain tracking-widest mb-3">For Inquiries</h4>
+    <a href="mailto:mariamodonnell213@gmail.com" class="montserrat text-bone/70 hover:text-bone text-sm block mb-1 transition-colors duration-300">mariamodonnell213&#64;gmail.com</a>
+    <a href="tel:+15127585296" class="montserrat text-bone/70 hover:text-bone text-sm block transition-colors duration-300">(512) 758-5296</a>
   </div>
+
+  <!-- Book + Social -->
+  <div>
+    <h4 class="uppercase anton text-sm text-pinkMain tracking-widest mb-3">Book Our Stand</h4>
+    <button (click)="onBookStand()" class="mb-4 h-[44px] px-6 rounded-full bg-pinkMain text-white anton uppercase text-xs tracking-widest hover:bg-pinkDarker transition-all duration-300 block w-full md:w-auto" style="box-shadow: 0 0 20px rgba(249,101,159,0.25);">
+      Get a Quote ✦
+    </button>
+    <div class="flex gap-3 justify-center md:justify-start mt-2">
+      <a href="https://www.facebook.com/people/La-Kochina/100083732247789/" target="_blank"
+        class="w-9 h-9 rounded-full bg-pinkMain/15 flex items-center justify-center text-pinkMain hover:bg-pinkMain hover:text-white transition-all duration-300 text-sm">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="https://www.instagram.com/lakochina512/" target="_blank"
+        class="w-9 h-9 rounded-full bg-pinkMain/15 flex items-center justify-center text-pinkMain hover:bg-pinkMain hover:text-white transition-all duration-300 text-sm">
+        <i class="fab fa-instagram"></i>
+      </a>
+    </div>
   </div>
 </footer>
+
+<!-- Bottom bar -->
+<div class="bg-dark py-4 px-8 text-center" style="border-top: 1px solid rgba(249,101,159,0.1);">
+  <p class="montserrat text-white/20 text-xs">© 2024 La Kochina · All rights reserved</p>
+</div>
