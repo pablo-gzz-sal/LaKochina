@@ -1,122 +1,112 @@
 <app-header class="hidden md:block"></app-header>
 <app-header-mobile class="md:hidden"></app-header-mobile>
-<section class="h-[15vh] bg-pinkDarker"></section>
-<section class="md:h-screen w-full bg-bone flex flex-col md:flex-row  items-center">
-  <div
-    class="md:w-6/12 flex flex-col bg-bone h-full justify-start items-start relative"
-  >
-    <div
-      class="absolute z-40 -translate-x-2/4 -translate-x-1/2 top-[10%] left-2/4 text-center"
-    >
-    <p class="montserrat uppercase text-bone">Using pork from</p>
-      <h2 class="uppercase anton text-pinkMain text-4xl md:text-6xl mb-2">
-        Feathered Fork Farms
-      </h2>
-    </div>
-    <!-- <div
-      class="absolute z-50 -translate-x-2/4 -translate-x-1/2 top-[80%] left-2/4 text-center"
-    >
-      <p class="uppercase montserrat text-bone">
-        Discounts % for parties 60 or more
-      </p>
-    </div> -->
-       <img
-      class="h-full w-full object-cover brightness-50"
-      src="../../../assets/TacosMany.jpeg"
-      alt=""
-    />
-  <!-- <app-image-grid></app-image-grid> -->
+
+<!-- Page hero bar -->
+<section class="menu-hero h-[15vh] bg-dark flex items-end px-8 md:px-16 pb-6 pt-20" style="border-bottom: 1px solid rgba(249,101,159,0.2);">
+  <div>
+    <h1 class="anton text-white text-4xl md:text-5xl uppercase tracking-widest">Our Menu</h1>
+    <p class="playfair italic text-pinkMain text-sm mt-1">Authentic flavors from the Yucatán</p>
   </div>
-  <div class="md:w-6/12 flex flex-col bg-bone h-full justify-center items-center">
-    <h2 class="anton text-pinkDarker text-6xl mt-10 md:mt-0">Our Menu</h2>
-    <div class="flex flex-col w-full items-center text-center md:text-start mt-10">
-      <ul class="montserrat text-align">
-        <span class="flex justify-between py-2">
-        <li>Cochinita taco, pickled onions</li>
-        <span class="pl-2">................$5</span>
-    </span>
-    <span class="flex justify-between py-2">
-        <li>Rajas con Queso Taco(V) </li>
-        <span class="pl-2">................$4</span>
-    </span>
-    <span class="flex justify-between py-2">
-        <li>Tacos with cheese crust </li>
-        <span class="pl-2">................$6</span>
-    </span>
-    <span class="flex justify-between py-2">
-        <li>Rice plate with pork and rajas </li>
-        <span class="pl-2">................$8</span>
-    </span>
-    <span class="flex justify-between py-2">
-        <li>Cochinita by the lb.</li>
-        <span class="pl-2">................$25</span>
-    </span>
-    <span class="flex justify-between py-2">
-        <li>Cochinita meal by the lb.</li>
-        <span class="pl-2">................$35</span>
-    </span>
-      </ul>
+</section>
+
+<!-- MENU SECTION -->
+<section class="menu-section min-h-screen w-full flex flex-col md:flex-row items-stretch">
+  <!-- Left: Image -->
+  <div class="w-full md:w-6/12 relative overflow-hidden min-h-[300px] md:min-h-0">
+    <img class="menu-hero-img w-full h-full object-cover brightness-50" src="../../../assets/TacosMany.jpeg" alt="La Kochina tacos" />
+    <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
+      <p class="montserrat uppercase text-bone/70 text-sm tracking-widest mb-2 farm-label">Using pork from</p>
+      <h2 class="uppercase anton text-pinkMain text-4xl md:text-5xl farm-name">Feathered Fork Farms</h2>
+    </div>
+  </div>
+
+  <!-- Right: Menu items -->
+  <div class="w-full md:w-6/12 flex flex-col bg-bone justify-center px-8 md:px-16 py-16 md:py-0">
+    <h2 class="menu-title anton text-pinkDarker text-5xl md:text-6xl mb-10 text-center md:text-start">Our Menu</h2>
+
+    <ul class="montserrat space-y-1 w-full max-w-md mx-auto md:mx-0">
+      <li class="menu-item flex justify-between items-center py-3" style="border-bottom: 1px solid rgba(120,52,78,0.15);">
+        <span class="text-dark">Cochinita taco, pickled onions</span>
+        <span class="anton text-pinkMain ml-4 text-lg">$5</span>
+      </li>
+      <li class="menu-item flex justify-between items-center py-3" style="border-bottom: 1px solid rgba(120,52,78,0.15);">
+        <span class="text-dark">Rajas con Queso Taco <span class="text-xs text-pinkMain">(V)</span></span>
+        <span class="anton text-pinkMain ml-4 text-lg">$4</span>
+      </li>
+      <li class="menu-item flex justify-between items-center py-3" style="border-bottom: 1px solid rgba(120,52,78,0.15);">
+        <span class="text-dark">Tacos with cheese crust</span>
+        <span class="anton text-pinkMain ml-4 text-lg">$6</span>
+      </li>
+      <li class="menu-item flex justify-between items-center py-3" style="border-bottom: 1px solid rgba(120,52,78,0.15);">
+        <span class="text-dark">Rice plate with pork and rajas</span>
+        <span class="anton text-pinkMain ml-4 text-lg">$8</span>
+      </li>
+      <li class="menu-item flex justify-between items-center py-3" style="border-bottom: 1px solid rgba(120,52,78,0.15);">
+        <span class="text-dark">Cochinita by the lb.</span>
+        <span class="anton text-pinkMain ml-4 text-lg">$25</span>
+      </li>
+      <li class="menu-item flex justify-between items-center py-3">
+        <span class="text-dark">Cochinita meal by the lb.</span>
+        <span class="anton text-pinkMain ml-4 text-lg">$35</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- CATERING SECTION -->
+<section class="catering-section min-h-screen w-full flex flex-col md:flex-row items-stretch">
+  <!-- Left: Catering menu -->
+  <div class="w-full md:w-6/12 flex flex-col bg-bone justify-center px-8 md:px-16 py-16 md:py-0">
+    <h2 class="catering-title anton text-pinkDarker text-5xl md:text-6xl mb-10 text-center md:text-start">Catering Service</h2>
+
+    <div class="grid grid-cols-2 gap-8 catering-grid">
+      <div class="catering-col">
+        <h4 class="anton text-pinkMain text-base uppercase tracking-widest mb-3">Entrée</h4>
+        <ul class="montserrat text-dark/80 text-sm space-y-2">
+          <li>Cochinita Pibil</li>
+          <li>Chicharron</li>
+          <li>Rajas con Queso <span class="text-pinkMain text-xs">(V)</span></li>
+        </ul>
+      </div>
+      <div class="catering-col">
+        <h4 class="anton text-pinkMain text-base uppercase tracking-widest mb-3">Side Dishes</h4>
+        <ul class="montserrat text-dark/80 text-sm space-y-2">
+          <li>Rice</li>
+          <li>Beans</li>
+          <li>Guacamole</li>
+        </ul>
+      </div>
+      <div class="catering-col">
+        <h4 class="anton text-pinkMain text-base uppercase tracking-widest mb-3">Dessert</h4>
+        <ul class="montserrat text-dark/80 text-sm space-y-2">
+          <li>Cookies</li>
+          <li>Chocoflan</li>
+          <li>Tres Leches</li>
+        </ul>
+      </div>
+      <div class="catering-col">
+        <h4 class="anton text-pinkMain text-base uppercase tracking-widest mb-3">Includes</h4>
+        <ul class="montserrat text-dark/80 text-sm space-y-2">
+          <li>Tortillas</li>
+          <li>Cutlery & Plates</li>
+          <li>Setup & Cleanup</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right: Pricing image -->
+  <div class="w-full md:w-6/12 relative overflow-hidden min-h-[350px] md:min-h-0">
+    <img class="catering-img w-full h-full object-cover brightness-50" src="../../../assets/catering.JPG" alt="Catering" />
+    <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-8">
+      <div class="price-card glass-card p-8">
+        <p class="montserrat uppercase text-white/60 text-xs tracking-widest mb-2">Starting at</p>
+        <h2 class="catering-price-title uppercase anton text-pinkMain text-5xl md:text-6xl">$20 / person</h2>
+        <p class="montserrat uppercase text-bone/70 text-sm mt-2">(Minimum 30 people)</p>
+        <p class="montserrat text-white/50 text-xs mt-4">Discounts available for 60+ guests</p>
+      </div>
     </div>
   </div>
 </section>
-<section class="md:h-screen w-full bg-bone flex flex-col md:flex-row items-center">
-  <div class="md:w-6/12 flex flex-col bg-bone h-full justify-center items-center">
-    <h2 class="anton text-pinkDarker text-center md:text-start mt-10 md:mt-0 text-6xl">Catering Service</h2>
-    <div class="flex flex-col w-full items-center text-center mt-10 mb-10 md:mb-10">
-      <ul class="montserrat">
-        <li class="uppercase anton text-lg my-2 text-pinkMain">entrée</li>
-        <li>Cochinita Pibil - Green salsa and pickled onion</li>
-        <li>Chicharron - Chipotle salsa and cilantro with onion</li>
-        <li>Rajas con Queso - Veggie</li>
-      </ul>
-      <ul class="montserrat">
-        <li class="uppercase anton text-lg my-2 text-pinkMain">Side Dishes</li>
-        <li>Rice</li>
-        <li>Beans</li>
-        <li>Guacamole</li>
-      </ul>
-      <ul class="montserrat">
-        <li class="uppercase anton text-lg my-2 text-pinkMain">
-          Dessert (Pick One)
-        </li>
-        <li>Cookies</li>
-        <li>Chocoflan</li>
-        <li>Tres Leches</li>
-      </ul>
-      <ul class="montserrat">
-        <li class="uppercase anton text-lg my-2 text-pinkMain">
-          Service Includes
-        </li>
-        <li>Tortillas</li>
-        <li>cutlery</li>
-        <li>Plates</li>
-        <li>Set up and Clean up</li>
-      </ul>
-    </div>
-  </div>
-  <div
-    class="md:w-6/12 flex flex-col bg-bone h-full justify-start items-start relative"
-  >
-    <div
-      class="absolute z-50 -translate-x-2/4 -translate-x-1/2 top-[10%] left-2/4 text-center"
-    >
-      <h2 class="uppercase anton text-pinkMain text-4xl md:text-6xl mb-5">
-        $20 dollars per person
-      </h2>
-      <p class="montserrat uppercase text-bone">(Mininum 30 people)</p>
-    </div>
-    <div
-      class="absolute z-50 -translate-x-2/4 -translate-x-1/2 top-[80%] left-2/4 text-center"
-    >
-      <p class="uppercase montserrat text-bone">
-        Discounts % for parties 60 or more
-      </p>
-    </div>
-    <img
-      class="h-full w-full object-cover brightness-50"
-      src="../../../assets/catering.JPG"
-      alt=""
-    />
-  </div>
-</section>
+
 <app-footer></app-footer>

@@ -15,4 +15,8 @@ export class FooterComponent{
     this.router.navigate([''])
   }
 
+  onBookStand() {
+    this.router.navigate(['/contact'], { queryParams: { tab: 'quote' } })
+  }
+
 }

@@ -28,7 +28,11 @@ export class HeaderMobileComponent {
 
   onMenu() {
     this.route.navigate(['/menu'])
-  } 
+  }
+
+  onBookStand() {
+    this.route.navigate(['/contact'], { queryParams: { tab: 'quote' } })
+  }
 
   toggleMenu() {
     this.showMenu = !this.showMenu;

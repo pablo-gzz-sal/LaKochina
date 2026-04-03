@@ -1,11 +1,53 @@
+.hero-img-card {
+    box-shadow:
+        0 0 60px rgba(249, 101, 159, 0.2),
+        0 30px 60px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(249, 101, 159, 0.2);
+}
+
+.hero-section {
+    background-color: #1a0a0e;
+}
+
+/* Price badge glass */
+.price-badge .glass-card {
+    min-width: 200px;
+}
+
+/* Dish image drop shadow */
+.dish-img {
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3));
+}
+
+/* Market image parallax container */
+.market-section .overflow-hidden {
+    overflow: hidden;
+}
+
+/* Founder image hover */
+.founder-img {
+    transition: transform 0.4s ease;
+
+    &:hover {
+        transform: translateY(-8px) rotate(-1deg);
+    }
+}
+
 button {
-    box-shadow: -9px 4px 1px 3px #78344E;
+    cursor: pointer;
+
+    &:active {
+        transform: scale(0.97);
+    }
 }
 
-button:hover {
-    filter: brightness(.8);
-}
-
-.darkerButton {
-    box-shadow: -9px 4px 1px 3px #f9659f !important;
+/* Stat numbers with gradient */
+.stat-number {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    line-height: 1;
+    background: linear-gradient(135deg, #f9659f 0%, #FF8C42 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
