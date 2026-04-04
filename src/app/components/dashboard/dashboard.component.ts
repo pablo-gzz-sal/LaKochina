@@ -201,20 +201,28 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   private initFounderAnimations() {
+    gsap.set('.founder-pre', { y: 20, opacity: 0 });
     gsap.set('.founder-quote', { y: 40, opacity: 0 });
     gsap.set('.founder-attr', { y: 20, opacity: 0 });
+    gsap.set('.founder-cred-inline', { y: 15, opacity: 0 });
     gsap.set('.founder-img', { x: -40, opacity: 0 });
+    gsap.set('.founder-badge', { scale: 0.8, opacity: 0 });
     gsap.set('.founder-text', { x: 30, opacity: 0 });
+    gsap.set('.founder-pills', { y: 20, opacity: 0 });
     gsap.set('.founder-btn', { y: 20, opacity: 0 });
 
     gsap.timeline({
       scrollTrigger: { trigger: '.founder-section', start: 'top 70%', once: true }
     })
-      .to('.founder-quote', { opacity: 1, y: 0, duration: 1, ease: 'power3.out' })
+      .to('.founder-pre', { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' })
+      .to('.founder-quote', { opacity: 1, y: 0, duration: 1, ease: 'power3.out' }, '-=0.3')
       .to('.founder-attr', { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' }, '-=0.4')
-      .to('.founder-img', { opacity: 1, x: 0, duration: 0.9, ease: 'power3.out' }, '-=0.4')
+      .to('.founder-cred-inline', { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out' }, '-=0.3')
+      .to('.founder-img', { opacity: 1, x: 0, duration: 0.9, ease: 'power3.out' }, '-=0.5')
+      .to('.founder-badge', { opacity: 1, scale: 1, duration: 0.7, ease: 'back.out(1.7)' }, '-=0.3')
       .to('.founder-text', { opacity: 1, x: 0, duration: 0.7, stagger: 0.2, ease: 'power3.out' }, '-=0.6')
-      .to('.founder-btn', { opacity: 1, y: 0, duration: 0.6, ease: 'back.out(1.5)' }, '-=0.3');
+      .to('.founder-pills', { opacity: 1, y: 0, duration: 0.5, ease: 'back.out(1.5)' }, '-=0.3')
+      .to('.founder-btn', { opacity: 1, y: 0, duration: 0.6, ease: 'back.out(1.5)' }, '-=0.2');
   }
 
   private animateCounter(selector: string, target: number) {

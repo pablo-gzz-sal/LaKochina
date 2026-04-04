@@ -275,27 +275,60 @@
 <app-scrolling-banner [infoBanner]="infoBannerInsta"></app-scrolling-banner>
 
 <!-- FOUNDER SECTION -->
-<section class="founder-section w-full bg-bone flex flex-col items-center py-20 md:py-32 px-6">
-  <div class="w-full text-center mb-16">
-    <h2 class="founder-quote playfair italic text-pinkMain text-3xl md:text-5xl md:w-[75%] mx-auto leading-snug opacity-0">
-      "I wanted to bring authentic interior-Mexican cuisine from my homeland"
+<section class="founder-section w-full bg-dark relative overflow-hidden py-24 md:py-36 px-6">
+  <!-- Decorative radial glow -->
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full pointer-events-none" style="background: radial-gradient(circle, rgba(120,52,78,0.18) 0%, transparent 65%);"></div>
+  <!-- Large decorative quote mark -->
+  <span class="founder-deco-quote playfair absolute select-none pointer-events-none text-white"
+    style="font-size: clamp(12rem, 30vw, 22rem); line-height:1; opacity:0.04; top: -2rem; left: 2rem;">"</span>
+
+  <!-- Quote block -->
+  <div class="relative z-10 w-full text-center mb-20 max-w-4xl mx-auto">
+    <span class="playfair italic text-pinkMain/50 text-base tracking-widest block mb-6 opacity-0 founder-pre">The story behind La Kochina</span>
+    <h2 class="founder-quote playfair italic text-white text-3xl md:text-5xl leading-snug opacity-0">
+      "I wanted to bring authentic interior-Mexican<br class="hidden md:block" /> cuisine from my homeland"
     </h2>
-    <p class="anton uppercase text-pinkMain text-xl md:text-2xl mt-5 opacity-0 founder-attr">— Mariam O'Donnell</p>
+    <div class="flex items-center justify-center gap-4 mt-6 opacity-0 founder-attr">
+      <div class="h-px w-10 bg-pinkMain/40"></div>
+      <p class="anton uppercase text-pinkMain text-lg md:text-xl tracking-widest">Mariam O'Donnell</p>
+      <div class="h-px w-10 bg-pinkMain/40"></div>
+    </div>
+    <p class="montserrat text-white/30 text-xs uppercase tracking-widest mt-2 opacity-0 founder-cred-inline">Founder · Le Cordon Bleu · Austin, TX</p>
   </div>
 
-  <div class="flex flex-col md:flex-row justify-center items-center gap-12 w-full max-w-4xl">
-    <img src="../../../assets/mariamFood.jpg" alt="Owner of La Kochina"
-      class="founder-img h-[400px] w-[280px] object-cover rounded-2xl opacity-0" style="box-shadow: -12px 12px 0px #f9659f;" />
-    <div class="flex flex-col max-w-md">
-      <p class="montserrat text-dark/80 mb-5 leading-relaxed opacity-0 founder-text">
+  <!-- Content row -->
+  <div class="relative z-10 flex flex-col md:flex-row justify-center items-center gap-12 md:gap-16 w-full max-w-5xl mx-auto">
+    <!-- Portrait -->
+    <div class="relative flex-shrink-0 opacity-0 founder-img">
+      <img src="../../../assets/mariamFood.jpg" alt="Mariam O'Donnell — Founder of La Kochina"
+        class="h-[420px] w-[300px] object-cover rounded-2xl founder-portrait" />
+      <!-- Credential badge -->
+      <div class="absolute -bottom-4 -right-4 glass-card px-4 py-3 text-center founder-badge">
+        <p class="montserrat text-white/50 text-xs uppercase tracking-widest">Graduate of</p>
+        <p class="anton text-pinkMain text-sm uppercase tracking-wide leading-tight">Le Cordon Bleu</p>
+        <p class="montserrat text-white/40 text-xs mt-0.5">Austin, TX</p>
+      </div>
+    </div>
+
+    <!-- Bio -->
+    <div class="flex flex-col max-w-lg">
+      <p class="montserrat text-white/60 mb-5 leading-relaxed opacity-0 founder-text">
         Mariam O'Donnell (Founder/Owner) is a graduate of the Le Cordon Bleu College of Culinary Arts in Austin, TX.
         Driven to bring authentic interior-Mexican cuisine from her homeland, La Kochina was born.
       </p>
-      <p class="montserrat text-dark/80 mb-8 leading-relaxed opacity-0 founder-text">
+      <p class="montserrat text-white/60 mb-10 leading-relaxed opacity-0 founder-text">
         Our services include Cochinita Pibil, Chicharron, homemade salsas, guacamole, and desserts.
         We provide catering and full stand hire for events of all sizes. Delivery available.
       </p>
-      <button class="h-[52px] w-full md:w-auto md:px-10 rounded-full text-white bg-pinkMain tracking-widest text-sm anton uppercase hover:bg-pinkDarker transition-all duration-300 opacity-0 founder-btn" (click)="onContact()">
+      <!-- Credential pills -->
+      <div class="flex flex-wrap gap-2 mb-8 opacity-0 founder-pills">
+        <span class="dish-tag">Le Cordon Bleu</span>
+        <span class="dish-tag">Est. 2019</span>
+        <span class="dish-tag">Austin, TX</span>
+        <span class="dish-tag">100% Authentic</span>
+      </div>
+      <button class="h-[52px] w-full md:w-auto md:px-10 rounded-full text-white bg-pinkMain tracking-widest text-sm anton uppercase hover:bg-pinkDarker transition-all duration-300 opacity-0 founder-btn"
+        style="box-shadow: 0 0 24px rgba(249,101,159,0.25);" (click)="onContact()">
         Get In Touch
       </button>
     </div>

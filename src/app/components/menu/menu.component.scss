@@ -1,0 +1,73 @@
+/* ─── Hero ──────────────────────────────────────── */
+.menu-hero-img {
+    transform-origin: center center;
+}
+
+/* ─── Menu items section ────────────────────────── */
+.menu-items-section .dish-watermark {
+    font-size: clamp(4rem, 18vw, 14rem);
+    opacity: 0.03;
+    white-space: nowrap;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    pointer-events: none;
+    user-select: none;
+}
+
+.menu-item {
+    transition: border-color 0.3s ease;
+
+    &:hover {
+        border-bottom-color: rgba(249, 101, 159, 0.25) !important;
+    }
+}
+
+.menu-price {
+    min-width: 3rem;
+    text-align: right;
+}
+
+/* ─── Image panel ───────────────────────────────── */
+.menu-img-panel {
+    height: 100%;
+    min-height: 480px;
+
+    .menu-panel-img {
+        transform-origin: center center;
+    }
+}
+
+/* ─── Catering section ──────────────────────────── */
+.catering-panel {
+    transition: border-color 0.3s ease, transform 0.3s ease;
+
+    &:hover {
+        border-color: rgba(249, 101, 159, 0.35);
+        transform: translateY(-4px);
+    }
+}
+
+.catering-price-badge {
+    min-width: 280px;
+}
+
+.catering-book-btn {
+    &:hover {
+        transform: translateY(-2px) scale(1.02);
+        box-shadow: 0 0 36px rgba(249, 101, 159, 0.6) !important;
+    }
+
+    &:active {
+        transform: scale(0.97);
+    }
+}
+
+/* ─── Image band ────────────────────────────────── */
+.catering-img-band {
+    .catering-band-img {
+        transform-origin: center center;
+    }
+}
