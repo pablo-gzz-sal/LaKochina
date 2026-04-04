@@ -16,12 +16,62 @@
 
 /* Dish image drop shadow */
 .dish-img {
-    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3));
+    filter: drop-shadow(0 24px 48px rgba(0, 0, 0, 0.6));
+    transition: transform 0.4s ease;
+
+    &:hover {
+        transform: translateY(-8px) scale(1.03);
+    }
+}
+
+/* Background watermark text */
+.dish-watermark {
+    font-size: clamp(4rem, 14vw, 12rem);
+    opacity: 0.04;
+    white-space: nowrap;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    line-height: 1;
+    letter-spacing: -0.02em;
+}
+
+/* Ingredient / tag pills */
+.dish-tag {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 5px 12px;
+    border-radius: 99px;
+    border: 1px solid rgba(249, 101, 159, 0.35);
+    color: rgba(249, 101, 159, 0.8);
+    background: rgba(249, 101, 159, 0.06);
+    white-space: nowrap;
+
+    &--amber {
+        border-color: rgba(255, 140, 66, 0.35);
+        color: rgba(255, 140, 66, 0.8);
+        background: rgba(255, 140, 66, 0.06);
+    }
+}
+
+/* Flavor stats divider */
+.dish-stats {
+    .w-px {
+        min-height: 32px;
+    }
 }
 
 /* Market image parallax container */
 .market-section .overflow-hidden {
     overflow: hidden;
+}
+
+/* Market hours badge */
+.market-badge .glass-card {
+    background: rgba(26, 10, 14, 0.7);
+    border-color: rgba(249, 101, 159, 0.25);
 }
 
 /* Founder image hover */
