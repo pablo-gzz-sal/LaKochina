@@ -2,9 +2,7 @@ import { Component, OnInit, AfterViewInit, OnDestroy, Renderer2 } from '@angular
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
 import { HeaderMobileComponent } from '../header-mobile/header-mobile.component';
-import { Router, NavigationEnd } from '@angular/router';
-import { filter, switchMap } from 'rxjs/operators';
-import { timer } from 'rxjs';
+import { Router } from '@angular/router';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -28,12 +26,7 @@ export class MenuComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngOnInit() {
     this.renderer.removeClass(document.body, 'menu-opened');
-    this.router.events
-      .pipe(
-        filter((event) => event instanceof NavigationEnd),
-        switchMap(() => timer(600))
-      )
-      .subscribe(() => window.scrollTo(0, 0));
+    window.scrollTo(0, 0);
   }
 
   ngAfterViewInit() {
