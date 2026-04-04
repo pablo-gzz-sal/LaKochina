@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, OnDestroy, Renderer2 } from '@angular/core';
+import { Component, OnInit, AfterViewInit, OnDestroy, Renderer2, ElementRef } from '@angular/core';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
 import { HeaderMobileComponent } from '../header-mobile/header-mobile.component';
@@ -22,21 +22,26 @@ gsap.registerPlugin(ScrollTrigger);
 export class MenuComponent implements OnInit, AfterViewInit, OnDestroy {
   private ctx!: gsap.Context;
 
-  constructor(private router: Router, private renderer: Renderer2) {}
+  constructor(private router: Router, private renderer: Renderer2, private el: ElementRef) {}
 
   ngOnInit() {
     this.renderer.removeClass(document.body, 'menu-opened');
-    window.scrollTo(0, 0);
   }
 
   ngAfterViewInit() {
+    document.documentElement.style.scrollBehavior = 'auto';
+    window.scrollTo(0, 0);
+
     setTimeout(() => {
       this.ctx = gsap.context(() => {
         this.initHeroAnimations();
         this.initMenuItemsAnimations();
         this.initCateringAnimations();
+      }, this.el);
+      requestAnimationFrame(() => {
+        ScrollTrigger.refresh();
+        document.documentElement.style.scrollBehavior = '';
       });
-      ScrollTrigger.refresh();
     }, 150);
   }
 

@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, OnDestroy, Renderer2 } from '@angular/core';
+import { Component, OnInit, AfterViewInit, OnDestroy, Renderer2, ElementRef } from '@angular/core';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
 import { HeaderMobileComponent } from '../header-mobile/header-mobile.component';
@@ -37,12 +37,12 @@ export class ContactComponent implements OnInit, AfterViewInit, OnDestroy {
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private renderer: Renderer2,
-    private contactService: ContactService
+    private contactService: ContactService,
+    private el: ElementRef
   ) {}
 
   ngOnInit() {
     this.renderer.removeClass(document.body, 'menu-opened');
-    window.scrollTo(0, 0);
 
     this.activatedRoute.queryParams.subscribe(params => {
       if (params['tab'] === 'quote') {
@@ -52,12 +52,18 @@ export class ContactComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit() {
+    document.documentElement.style.scrollBehavior = 'auto';
+    window.scrollTo(0, 0);
+
     setTimeout(() => {
       this.ctx = gsap.context(() => {
         this.animatePageIn();
         this.animateInfoPanel();
+      }, this.el);
+      requestAnimationFrame(() => {
+        ScrollTrigger.refresh();
+        document.documentElement.style.scrollBehavior = '';
       });
-      ScrollTrigger.refresh();
     }, 150);
   }
 
