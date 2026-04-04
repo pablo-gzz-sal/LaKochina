@@ -21,6 +21,7 @@ gsap.registerPlugin(ScrollTrigger);
 export class DashboardComponent implements OnInit, AfterViewInit, OnDestroy {
 
   infoBannerInsta!: string[];
+  private ctx!: gsap.Context;
 
   constructor(private route: Router, private renderer: Renderer2) {}
 
@@ -38,13 +39,15 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit() {
-    // Small delay so DOM is fully painted
     setTimeout(() => {
-      this.initHeroAnimations();
-      this.initScrollAnimations();
-      this.initHireStandAnimations();
-      this.initFounderAnimations();
-    }, 100);
+      this.ctx = gsap.context(() => {
+        this.initHeroAnimations();
+        this.initScrollAnimations();
+        this.initHireStandAnimations();
+        this.initFounderAnimations();
+      });
+      ScrollTrigger.refresh();
+    }, 150);
   }
 
   private initHeroAnimations() {
@@ -240,7 +243,7 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    ScrollTrigger.getAll().forEach(st => st.kill());
+    this.ctx?.revert();
   }
 
   onContact() {
