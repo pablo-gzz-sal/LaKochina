@@ -83,6 +83,21 @@
     }
 }
 
+/* Founder portrait */
+.founder-portrait {
+    border: 1px solid rgba(249, 101, 159, 0.25);
+    box-shadow:
+        0 0 40px rgba(249, 101, 159, 0.15),
+        0 30px 60px rgba(0, 0, 0, 0.5);
+}
+
+/* Founder credential badge */
+.founder-badge .glass-card {
+    background: rgba(26, 10, 14, 0.85);
+    border-color: rgba(249, 101, 159, 0.3);
+    backdrop-filter: blur(12px);
+}
+
 button {
     cursor: pointer;
 
