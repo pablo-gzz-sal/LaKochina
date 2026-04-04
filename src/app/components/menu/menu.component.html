@@ -1,112 +1,237 @@
 <app-header class="hidden md:block"></app-header>
 <app-header-mobile class="md:hidden"></app-header-mobile>
 
-<!-- Page hero bar -->
-<section class="menu-hero h-[15vh] bg-dark flex items-end px-8 md:px-16 pb-6 pt-20" style="border-bottom: 1px solid rgba(249,101,159,0.2);">
-  <div>
-    <h1 class="anton text-white text-4xl md:text-5xl uppercase tracking-widest">Our Menu</h1>
-    <p class="playfair italic text-pinkMain text-sm mt-1">Authentic flavors from the Yucatán</p>
-  </div>
-</section>
+<!-- ═══════════════════════════════════════════
+     HERO — full-bleed cinematic
+     ═══════════════════════════════════════════ -->
+<section class="menu-hero relative w-full min-h-[60vh] flex items-end overflow-hidden">
+  <!-- Background image -->
+  <img class="menu-hero-img absolute inset-0 w-full h-full object-cover" src="../../../assets/TacosMany.jpeg" alt="La Kochina tacos" />
 
-<!-- MENU SECTION -->
-<section class="menu-section min-h-screen w-full flex flex-col md:flex-row items-stretch">
-  <!-- Left: Image -->
-  <div class="w-full md:w-6/12 relative overflow-hidden min-h-[300px] md:min-h-0">
-    <img class="menu-hero-img w-full h-full object-cover brightness-50" src="../../../assets/TacosMany.jpeg" alt="La Kochina tacos" />
-    <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
-      <p class="montserrat uppercase text-bone/70 text-sm tracking-widest mb-2 farm-label">Using pork from</p>
-      <h2 class="uppercase anton text-pinkMain text-4xl md:text-5xl farm-name">Feathered Fork Farms</h2>
-    </div>
-  </div>
+  <!-- Gradient overlays -->
+  <div class="absolute inset-0 bg-gradient-to-t from-dark via-dark/70 to-dark/20"></div>
+  <div class="absolute inset-0" style="background: radial-gradient(ellipse 60% 80% at 30% 60%, rgba(120,52,78,0.25) 0%, transparent 70%);"></div>
 
-  <!-- Right: Menu items -->
-  <div class="w-full md:w-6/12 flex flex-col bg-bone justify-center px-8 md:px-16 py-16 md:py-0">
-    <h2 class="menu-title anton text-pinkDarker text-5xl md:text-6xl mb-10 text-center md:text-start">Our Menu</h2>
+  <!-- Content -->
+  <div class="relative z-10 w-full px-8 md:px-20 pb-16 pt-32">
+    <p class="menu-hero-tag playfair italic text-pinkMain text-sm md:text-base tracking-widest mb-4">Authentic flavors from the Yucatán</p>
+    <h1 class="menu-hero-title anton text-white uppercase leading-none" style="font-size: clamp(3.5rem, 10vw, 8rem); letter-spacing: -0.02em;">OUR MENU</h1>
 
-    <ul class="montserrat space-y-1 w-full max-w-md mx-auto md:mx-0">
-      <li class="menu-item flex justify-between items-center py-3" style="border-bottom: 1px solid rgba(120,52,78,0.15);">
-        <span class="text-dark">Cochinita taco, pickled onions</span>
-        <span class="anton text-pinkMain ml-4 text-lg">$5</span>
-      </li>
-      <li class="menu-item flex justify-between items-center py-3" style="border-bottom: 1px solid rgba(120,52,78,0.15);">
-        <span class="text-dark">Rajas con Queso Taco <span class="text-xs text-pinkMain">(V)</span></span>
-        <span class="anton text-pinkMain ml-4 text-lg">$4</span>
-      </li>
-      <li class="menu-item flex justify-between items-center py-3" style="border-bottom: 1px solid rgba(120,52,78,0.15);">
-        <span class="text-dark">Tacos with cheese crust</span>
-        <span class="anton text-pinkMain ml-4 text-lg">$6</span>
-      </li>
-      <li class="menu-item flex justify-between items-center py-3" style="border-bottom: 1px solid rgba(120,52,78,0.15);">
-        <span class="text-dark">Rice plate with pork and rajas</span>
-        <span class="anton text-pinkMain ml-4 text-lg">$8</span>
-      </li>
-      <li class="menu-item flex justify-between items-center py-3" style="border-bottom: 1px solid rgba(120,52,78,0.15);">
-        <span class="text-dark">Cochinita by the lb.</span>
-        <span class="anton text-pinkMain ml-4 text-lg">$25</span>
-      </li>
-      <li class="menu-item flex justify-between items-center py-3">
-        <span class="text-dark">Cochinita meal by the lb.</span>
-        <span class="anton text-pinkMain ml-4 text-lg">$35</span>
-      </li>
-    </ul>
-  </div>
-</section>
-
-<!-- CATERING SECTION -->
-<section class="catering-section min-h-screen w-full flex flex-col md:flex-row items-stretch">
-  <!-- Left: Catering menu -->
-  <div class="w-full md:w-6/12 flex flex-col bg-bone justify-center px-8 md:px-16 py-16 md:py-0">
-    <h2 class="catering-title anton text-pinkDarker text-5xl md:text-6xl mb-10 text-center md:text-start">Catering Service</h2>
-
-    <div class="grid grid-cols-2 gap-8 catering-grid">
-      <div class="catering-col">
-        <h4 class="anton text-pinkMain text-base uppercase tracking-widest mb-3">Entrée</h4>
-        <ul class="montserrat text-dark/80 text-sm space-y-2">
-          <li>Cochinita Pibil</li>
-          <li>Chicharron</li>
-          <li>Rajas con Queso <span class="text-pinkMain text-xs">(V)</span></li>
-        </ul>
-      </div>
-      <div class="catering-col">
-        <h4 class="anton text-pinkMain text-base uppercase tracking-widest mb-3">Side Dishes</h4>
-        <ul class="montserrat text-dark/80 text-sm space-y-2">
-          <li>Rice</li>
-          <li>Beans</li>
-          <li>Guacamole</li>
-        </ul>
-      </div>
-      <div class="catering-col">
-        <h4 class="anton text-pinkMain text-base uppercase tracking-widest mb-3">Dessert</h4>
-        <ul class="montserrat text-dark/80 text-sm space-y-2">
-          <li>Cookies</li>
-          <li>Chocoflan</li>
-          <li>Tres Leches</li>
-        </ul>
-      </div>
-      <div class="catering-col">
-        <h4 class="anton text-pinkMain text-base uppercase tracking-widest mb-3">Includes</h4>
-        <ul class="montserrat text-dark/80 text-sm space-y-2">
-          <li>Tortillas</li>
-          <li>Cutlery & Plates</li>
-          <li>Setup & Cleanup</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <!-- Right: Pricing image -->
-  <div class="w-full md:w-6/12 relative overflow-hidden min-h-[350px] md:min-h-0">
-    <img class="catering-img w-full h-full object-cover brightness-50" src="../../../assets/catering.JPG" alt="Catering" />
-    <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-8">
-      <div class="price-card glass-card p-8">
-        <p class="montserrat uppercase text-white/60 text-xs tracking-widest mb-2">Starting at</p>
-        <h2 class="catering-price-title uppercase anton text-pinkMain text-5xl md:text-6xl">$20 / person</h2>
-        <p class="montserrat uppercase text-bone/70 text-sm mt-2">(Minimum 30 people)</p>
-        <p class="montserrat text-white/50 text-xs mt-4">Discounts available for 60+ guests</p>
-      </div>
+    <!-- Farm badge -->
+    <div class="menu-farm-badge mt-6 flex items-center gap-3">
+      <span class="h-px w-8 bg-pinkMain/40"></span>
+      <span class="montserrat text-white/50 text-xs uppercase tracking-widest">Pork sourced from</span>
+      <span class="anton text-pinkMain text-sm tracking-widest uppercase">Feathered Fork Farms</span>
     </div>
   </div>
 </section>
+
+
+<!-- ═══════════════════════════════════════════
+     MENU ITEMS — dark, full-width
+     ═══════════════════════════════════════════ -->
+<section class="menu-items-section w-full bg-dark relative overflow-hidden" style="border-top: 1px solid rgba(249,101,159,0.12);">
+
+  <!-- Radial glow -->
+  <div class="absolute top-0 right-0 w-[600px] h-[600px] pointer-events-none" style="background: radial-gradient(circle, rgba(249,101,159,0.06) 0%, transparent 70%); transform: translate(20%, -20%);"></div>
+
+  <!-- Watermark -->
+  <span class="dish-watermark absolute anton pointer-events-none select-none text-white">MENÚ</span>
+
+  <div class="relative z-10 w-full max-w-screen-xl mx-auto px-8 md:px-20 py-20 md:py-28 grid md:grid-cols-2 gap-16 md:gap-24 items-start">
+
+    <!-- Left: items list -->
+    <div>
+      <p class="menu-items-tag montserrat uppercase text-pinkMain text-xs tracking-[0.18em] mb-3">Signature dishes</p>
+      <h2 class="menu-section-title anton text-white uppercase mb-12" style="font-size: clamp(2.8rem, 6vw, 5rem); line-height: 1; letter-spacing: -0.02em;">Our<br>Menu</h2>
+
+      <ul class="space-y-0">
+        <li class="menu-item group" style="border-bottom: 1px solid rgba(249,101,159,0.1);">
+          <div class="flex justify-between items-start py-5 gap-4">
+            <div>
+              <p class="montserrat font-semibold text-white text-base leading-snug group-hover:text-pinkMain transition-colors duration-300">Cochinita taco, pickled onions</p>
+              <p class="montserrat text-white/40 text-xs mt-1 italic">Slow-roasted Yucatán pork · habanero · recado rojo</p>
+            </div>
+            <span class="menu-price anton text-pinkMain text-xl shrink-0">$5</span>
+          </div>
+        </li>
+
+        <li class="menu-item group" style="border-bottom: 1px solid rgba(249,101,159,0.1);">
+          <div class="flex justify-between items-start py-5 gap-4">
+            <div>
+              <p class="montserrat font-semibold text-white text-base leading-snug group-hover:text-pinkMain transition-colors duration-300">
+                Rajas con Queso Taco
+                <span class="dish-tag ml-2" style="font-size:0.6rem; padding: 2px 8px;">V</span>
+              </p>
+              <p class="montserrat text-white/40 text-xs mt-1 italic">Roasted poblanos · Oaxacan cheese · crema</p>
+            </div>
+            <span class="menu-price anton text-pinkMain text-xl shrink-0">$4</span>
+          </div>
+        </li>
+
+        <li class="menu-item group" style="border-bottom: 1px solid rgba(249,101,159,0.1);">
+          <div class="flex justify-between items-start py-5 gap-4">
+            <div>
+              <p class="montserrat font-semibold text-white text-base leading-snug group-hover:text-pinkMain transition-colors duration-300">Tacos with cheese crust</p>
+              <p class="montserrat text-white/40 text-xs mt-1 italic">Crispy cheese-seared tortilla · your choice of filling</p>
+            </div>
+            <span class="menu-price anton text-pinkMain text-xl shrink-0">$6</span>
+          </div>
+        </li>
+
+        <li class="menu-item group" style="border-bottom: 1px solid rgba(249,101,159,0.1);">
+          <div class="flex justify-between items-start py-5 gap-4">
+            <div>
+              <p class="montserrat font-semibold text-white text-base leading-snug group-hover:text-pinkMain transition-colors duration-300">Rice plate with pork and rajas</p>
+              <p class="montserrat text-white/40 text-xs mt-1 italic">Cilantro rice · cochinita · roasted poblanos</p>
+            </div>
+            <span class="menu-price anton text-pinkMain text-xl shrink-0">$8</span>
+          </div>
+        </li>
+
+        <li class="menu-item group" style="border-bottom: 1px solid rgba(249,101,159,0.1);">
+          <div class="flex justify-between items-start py-5 gap-4">
+            <div>
+              <p class="montserrat font-semibold text-white text-base leading-snug group-hover:text-pinkMain transition-colors duration-300">Cochinita by the lb.</p>
+              <p class="montserrat text-white/40 text-xs mt-1 italic">Pure slow-roasted cochinita pibil</p>
+            </div>
+            <span class="menu-price anton text-pinkMain text-xl shrink-0">$25</span>
+          </div>
+        </li>
+
+        <li class="menu-item group">
+          <div class="flex justify-between items-start py-5 gap-4">
+            <div>
+              <p class="montserrat font-semibold text-white text-base leading-snug group-hover:text-pinkMain transition-colors duration-300">Cochinita meal by the lb.</p>
+              <p class="montserrat text-white/40 text-xs mt-1 italic">Cochinita · tortillas · rice · pickled onions · habanero</p>
+            </div>
+            <span class="menu-price anton text-pinkMain text-xl shrink-0">$35</span>
+          </div>
+        </li>
+      </ul>
+
+      <!-- Allergen note -->
+      <p class="menu-note montserrat text-white/25 text-xs mt-8 tracking-wide" style="border-top: 1px solid rgba(249,101,159,0.08); padding-top: 20px;">
+        <span class="text-pinkMain/60">V</span> — Vegetarian &nbsp;·&nbsp; Consuming raw or undercooked meats may increase the risk of foodborne illness.
+      </p>
+    </div>
+
+    <!-- Right: image panel -->
+    <div class="menu-img-panel relative rounded-2xl overflow-hidden self-center" style="min-height: 480px;">
+      <img class="menu-panel-img w-full h-full object-cover brightness-75 absolute inset-0" src="../../../assets/TacosMany.jpeg" alt="La Kochina tacos" />
+      <div class="absolute inset-0 bg-gradient-to-t from-dark/80 via-transparent to-transparent"></div>
+
+      <!-- Farm badge overlay -->
+      <div class="absolute bottom-6 left-6 right-6">
+        <div class="glass-card p-5">
+          <p class="montserrat uppercase text-white/40 text-xs tracking-widest mb-1">Pork sourced from</p>
+          <p class="anton text-pinkMain text-xl uppercase tracking-wide">Feathered Fork Farms</p>
+          <p class="montserrat text-white/50 text-xs mt-1">Austin, TX · Pasture-raised</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     CATERING — dark cinematic
+     ═══════════════════════════════════════════ -->
+<section class="catering-section w-full bg-dark relative overflow-hidden" style="border-top: 1px solid rgba(249,101,159,0.12);">
+
+  <!-- Background glow -->
+  <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] pointer-events-none" style="background: radial-gradient(ellipse, rgba(120,52,78,0.18) 0%, transparent 70%);"></div>
+
+  <div class="relative z-10 w-full max-w-screen-xl mx-auto px-8 md:px-20 py-20 md:py-28">
+
+    <!-- Section header -->
+    <div class="catering-header text-center mb-16">
+      <p class="catering-tag montserrat uppercase text-pinkMain text-xs tracking-[0.18em] mb-4">Private events & events</p>
+      <h2 class="catering-title anton text-white uppercase leading-none mb-5" style="font-size: clamp(2.8rem, 7vw, 6rem); letter-spacing: -0.02em;">Catering<br><span class="gradient-text">Service</span></h2>
+      <p class="catering-sub playfair italic text-white/50 text-lg max-w-xl mx-auto">"We bring everything — you bring your guests."</p>
+    </div>
+
+    <!-- 4-panel grid -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+      <div class="catering-panel glass-card p-6 md:p-8">
+        <h4 class="anton text-pinkMain text-sm uppercase tracking-widest mb-4">Entrée</h4>
+        <ul class="montserrat text-white/60 text-sm space-y-2.5">
+          <li class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-pinkMain/50 shrink-0"></span>Cochinita Pibil</li>
+          <li class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-pinkMain/50 shrink-0"></span>Chicharron</li>
+          <li class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-pinkMain/50 shrink-0"></span>Rajas con Queso <span class="text-pinkMain text-xs">(V)</span></li>
+        </ul>
+      </div>
+
+      <div class="catering-panel glass-card p-6 md:p-8">
+        <h4 class="anton text-amber text-sm uppercase tracking-widest mb-4">Side Dishes</h4>
+        <ul class="montserrat text-white/60 text-sm space-y-2.5">
+          <li class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-amber/50 shrink-0"></span>Rice</li>
+          <li class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-amber/50 shrink-0"></span>Beans</li>
+          <li class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-amber/50 shrink-0"></span>Guacamole</li>
+        </ul>
+      </div>
+
+      <div class="catering-panel glass-card p-6 md:p-8">
+        <h4 class="anton text-pinkMain text-sm uppercase tracking-widest mb-4">Dessert</h4>
+        <ul class="montserrat text-white/60 text-sm space-y-2.5">
+          <li class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-pinkMain/50 shrink-0"></span>Cookies</li>
+          <li class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-pinkMain/50 shrink-0"></span>Chocoflan</li>
+          <li class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-pinkMain/50 shrink-0"></span>Tres Leches</li>
+        </ul>
+      </div>
+
+      <div class="catering-panel glass-card p-6 md:p-8">
+        <h4 class="anton text-amber text-sm uppercase tracking-widest mb-4">Includes</h4>
+        <ul class="montserrat text-white/60 text-sm space-y-2.5">
+          <li class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-amber/50 shrink-0"></span>Tortillas</li>
+          <li class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-amber/50 shrink-0"></span>Cutlery & Plates</li>
+          <li class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-amber/50 shrink-0"></span>Setup & Cleanup</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Price + CTA row -->
+    <div class="catering-cta-row flex flex-col md:flex-row items-center justify-center gap-8">
+
+      <!-- Price badge -->
+      <div class="catering-price-badge glass-card px-10 py-8 text-center" style="border-color: rgba(249,101,159,0.3);">
+        <p class="montserrat uppercase text-white/40 text-xs tracking-widest mb-1">Starting at</p>
+        <p class="anton text-pinkMain leading-none" style="font-size: clamp(3rem, 8vw, 5rem);">$20<span class="text-2xl text-white/40 ml-2">/ person</span></p>
+        <p class="montserrat text-white/40 text-xs mt-2 tracking-wide">Minimum 30 people &nbsp;·&nbsp; Discounts for 60+ guests</p>
+      </div>
+
+      <!-- CTA -->
+      <div class="catering-book flex flex-col items-center md:items-start gap-4 text-center md:text-left">
+        <p class="montserrat text-white/50 text-sm max-w-xs">Ready to bring La Kochina to your next corporate event, wedding, or birthday celebration?</p>
+        <button (click)="onBookStand()" class="catering-book-btn montserrat uppercase text-dark font-bold text-sm tracking-widest px-8 py-4 rounded-full transition-all duration-300"
+          style="background: linear-gradient(135deg, #f9659f 0%, #FF8C42 100%); box-shadow: 0 0 24px rgba(249,101,159,0.4);">
+          Get a Quote ✦
+        </button>
+        <p class="montserrat text-white/25 text-xs">Free consultation · No commitment</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     FULL-BLEED CATERING IMAGE BAND
+     ═══════════════════════════════════════════ -->
+<section class="catering-img-band relative w-full overflow-hidden" style="height: 50vh; border-top: 1px solid rgba(249,101,159,0.1);">
+  <img class="catering-band-img w-full h-full object-cover brightness-40 scale-110" src="../../../assets/catering.JPG" alt="La Kochina catering" />
+  <div class="absolute inset-0 bg-gradient-to-r from-dark/80 via-dark/30 to-dark/80"></div>
+
+  <!-- Center text -->
+  <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
+    <p class="montserrat uppercase text-white/40 text-xs tracking-[0.2em] mb-3">Available for private hire</p>
+    <h3 class="catering-band-title anton text-white uppercase" style="font-size: clamp(2rem, 6vw, 5rem); letter-spacing: -0.02em; line-height: 1;">
+      500+ EVENTS SERVED<br>
+      <span class="gradient-text">SINCE 2019</span>
+    </h3>
+  </div>
+</section>
+
 
 <app-footer></app-footer>

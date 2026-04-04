@@ -1,8 +1,6 @@
 import { Component, OnInit, AfterViewInit, OnDestroy, Renderer2 } from '@angular/core';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
-import { ScrollingBannerComponent } from '../scrolling-banner/scrolling-banner.component';
-import { ImageGridComponent } from '../image-grid/image-grid.component';
 import { HeaderMobileComponent } from '../header-mobile/header-mobile.component';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter, switchMap } from 'rxjs/operators';
@@ -20,8 +18,6 @@ gsap.registerPlugin(ScrollTrigger);
   imports: [
     HeaderComponent,
     FooterComponent,
-    ScrollingBannerComponent,
-    ImageGridComponent,
     HeaderMobileComponent,
   ],
 })
@@ -40,66 +36,95 @@ export class MenuComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngAfterViewInit() {
     setTimeout(() => {
-      this.initAnimations();
+      this.initHeroAnimations();
+      this.initMenuItemsAnimations();
+      this.initCateringAnimations();
     }, 100);
   }
 
-  private initAnimations() {
-    // Hero bar
-    gsap.set('.menu-hero h1', { y: 30, opacity: 0 });
-    gsap.set('.menu-hero p', { y: 20, opacity: 0 });
-    gsap.timeline({ delay: 0.2 })
-      .to('.menu-hero h1', { y: 0, opacity: 1, duration: 0.7, ease: 'power3.out' })
-      .to('.menu-hero p', { y: 0, opacity: 1, duration: 0.5, ease: 'power3.out' }, '-=0.3');
+  private initHeroAnimations() {
+    gsap.set('.menu-hero-tag', { y: 20, opacity: 0 });
+    gsap.set('.menu-hero-title', { y: 50, opacity: 0 });
+    gsap.set('.menu-farm-badge', { y: 20, opacity: 0 });
 
-    // Farm image overlay
-    gsap.set('.farm-label', { y: 15, opacity: 0 });
-    gsap.set('.farm-name', { y: 20, opacity: 0 });
-    gsap.timeline({ delay: 0.5 })
-      .to('.farm-label', { y: 0, opacity: 1, duration: 0.6, ease: 'power3.out' })
-      .to('.farm-name', { y: 0, opacity: 1, duration: 0.7, ease: 'power3.out' }, '-=0.3');
+    gsap.timeline({ delay: 0.3 })
+      .to('.menu-hero-tag', { y: 0, opacity: 1, duration: 0.6, ease: 'power3.out' })
+      .to('.menu-hero-title', { y: 0, opacity: 1, duration: 0.9, ease: 'power3.out' }, '-=0.3')
+      .to('.menu-farm-badge', { y: 0, opacity: 1, duration: 0.6, ease: 'power3.out' }, '-=0.3');
 
-    // Parallax on menu hero image
+    // Parallax on hero image
     gsap.to('.menu-hero-img', {
-      yPercent: 15,
+      yPercent: 18,
       ease: 'none',
       scrollTrigger: {
-        trigger: '.menu-section',
+        trigger: '.menu-hero',
+        start: 'top top',
+        end: 'bottom top',
+        scrub: 1.5
+      }
+    });
+  }
+
+  private initMenuItemsAnimations() {
+    gsap.set('.menu-items-tag', { y: 15, opacity: 0 });
+    gsap.set('.menu-section-title', { y: 40, opacity: 0 });
+    gsap.set('.menu-item', { x: -30, opacity: 0 });
+    gsap.set('.menu-note', { opacity: 0 });
+    gsap.set('.menu-img-panel', { x: 40, opacity: 0 });
+
+    gsap.timeline({
+      scrollTrigger: { trigger: '.menu-items-section', start: 'top 70%', once: true }
+    })
+      .to('.menu-items-tag', { y: 0, opacity: 1, duration: 0.5, ease: 'power3.out' })
+      .to('.menu-section-title', { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out' }, '-=0.2')
+      .to('.menu-item', { x: 0, opacity: 1, duration: 0.5, stagger: 0.08, ease: 'power3.out' }, '-=0.4')
+      .to('.menu-note', { opacity: 1, duration: 0.5, ease: 'power3.out' }, '-=0.2')
+      .to('.menu-img-panel', { x: 0, opacity: 1, duration: 0.9, ease: 'back.out(1.3)' }, '-=0.8');
+
+    // Parallax on right image panel
+    gsap.to('.menu-panel-img', {
+      yPercent: 10,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '.menu-items-section',
         start: 'top bottom',
         end: 'bottom top',
         scrub: 1.5
       }
     });
+  }
 
-    // Menu title + items stagger
-    gsap.set('.menu-title', { x: -40, opacity: 0 });
-    gsap.set('.menu-item', { x: -30, opacity: 0 });
-
-    gsap.timeline({
-      scrollTrigger: { trigger: '.menu-section', start: 'top 70%', once: true }
-    })
-      .to('.menu-title', { x: 0, opacity: 1, duration: 0.8, ease: 'power3.out' })
-      .to('.menu-item', { x: 0, opacity: 1, duration: 0.5, stagger: 0.08, ease: 'power3.out' }, '-=0.4');
-
-    // Catering section
-    gsap.set('.catering-title', { x: -40, opacity: 0 });
-    gsap.set('.catering-col', { y: 30, opacity: 0 });
-    gsap.set('.catering-price-title', { scale: 0.8, opacity: 0 });
-    gsap.set('.price-card', { scale: 0.9, opacity: 0 });
+  private initCateringAnimations() {
+    gsap.set('.catering-tag', { y: 15, opacity: 0 });
+    gsap.set('.catering-title', { y: 40, opacity: 0 });
+    gsap.set('.catering-sub', { y: 20, opacity: 0 });
+    gsap.set('.catering-panel', { y: 30, opacity: 0 });
+    gsap.set('.catering-price-badge', { scale: 0.85, opacity: 0 });
+    gsap.set('.catering-book', { x: 30, opacity: 0 });
 
     gsap.timeline({
       scrollTrigger: { trigger: '.catering-section', start: 'top 70%', once: true }
     })
-      .to('.catering-title', { x: 0, opacity: 1, duration: 0.8, ease: 'power3.out' })
-      .to('.catering-col', { y: 0, opacity: 1, duration: 0.6, stagger: 0.12, ease: 'back.out(1.4)' }, '-=0.4')
-      .to('.price-card', { scale: 1, opacity: 1, duration: 0.8, ease: 'back.out(1.7)' }, '-=0.6');
+      .to('.catering-tag', { y: 0, opacity: 1, duration: 0.5, ease: 'power3.out' })
+      .to('.catering-title', { y: 0, opacity: 1, duration: 0.9, ease: 'power3.out' }, '-=0.2')
+      .to('.catering-sub', { y: 0, opacity: 1, duration: 0.6, ease: 'power3.out' }, '-=0.4')
+      .to('.catering-panel', { y: 0, opacity: 1, duration: 0.6, stagger: 0.12, ease: 'back.out(1.4)' }, '-=0.3')
+      .to('.catering-price-badge', { scale: 1, opacity: 1, duration: 0.8, ease: 'back.out(1.7)' }, '-=0.4')
+      .to('.catering-book', { x: 0, opacity: 1, duration: 0.6, ease: 'power3.out' }, '-=0.5');
 
-    // Catering image parallax
-    gsap.to('.catering-img', {
+    // Catering image band
+    gsap.set('.catering-band-title', { y: 30, opacity: 0 });
+    gsap.timeline({
+      scrollTrigger: { trigger: '.catering-img-band', start: 'top 75%', once: true }
+    })
+      .to('.catering-band-title', { y: 0, opacity: 1, duration: 0.9, ease: 'power3.out' });
+
+    // Parallax on catering band image
+    gsap.to('.catering-band-img', {
       yPercent: 12,
       ease: 'none',
       scrollTrigger: {
-        trigger: '.catering-section',
+        trigger: '.catering-img-band',
         start: 'top bottom',
         end: 'bottom top',
         scrub: 1.5
@@ -109,5 +134,9 @@ export class MenuComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngOnDestroy() {
     ScrollTrigger.getAll().forEach(st => st.kill());
+  }
+
+  onBookStand() {
+    this.router.navigate(['/contact'], { queryParams: { tab: 'quote' } });
   }
 }
