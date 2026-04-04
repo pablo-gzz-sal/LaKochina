@@ -25,6 +25,7 @@ export class ContactComponent implements OnInit, AfterViewInit, OnDestroy {
   activeTab: 'contact' | 'quote' = 'contact';
   contactSuccess = false;
   quoteSuccess = false;
+  private ctx!: gsap.Context;
 
   formData: Contact = { name: '', email: '', message: '' };
 
@@ -44,7 +45,6 @@ export class ContactComponent implements OnInit, AfterViewInit, OnDestroy {
   ngOnInit() {
     this.renderer.removeClass(document.body, 'menu-opened');
 
-    // Read ?tab=quote query param to auto-switch tab
     this.activatedRoute.queryParams.subscribe(params => {
       if (params['tab'] === 'quote') {
         this.activeTab = 'quote';
@@ -61,9 +61,12 @@ export class ContactComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngAfterViewInit() {
     setTimeout(() => {
-      this.animatePageIn();
-      this.animateInfoPanel();
-    }, 100);
+      this.ctx = gsap.context(() => {
+        this.animatePageIn();
+        this.animateInfoPanel();
+      });
+      ScrollTrigger.refresh();
+    }, 150);
   }
 
   private animatePageIn() {
@@ -85,16 +88,16 @@ export class ContactComponent implements OnInit, AfterViewInit, OnDestroy {
     gsap.to(fields, {
       y: 0, opacity: 1,
       duration: 0.5,
-      stagger: 0.07,
+      stagger: 0.06,
       ease: 'power3.out',
-      delay: 0.5
+      delay: 0.4
     });
   }
 
   private animateInfoPanel() {
     gsap.set('.info-overlay', { y: 30, opacity: 0 });
     gsap.to('.info-overlay', {
-      y: 0, opacity: 1, duration: 0.9, ease: 'power3.out', delay: 0.6
+      y: 0, opacity: 1, duration: 0.9, ease: 'power3.out', delay: 0.5
     });
 
     gsap.to('.contact-img', {
@@ -142,6 +145,6 @@ export class ContactComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    ScrollTrigger.getAll().forEach(st => st.kill());
+    this.ctx?.revert();
   }
 }

@@ -22,6 +22,8 @@ gsap.registerPlugin(ScrollTrigger);
   ],
 })
 export class MenuComponent implements OnInit, AfterViewInit, OnDestroy {
+  private ctx!: gsap.Context;
+
   constructor(private router: Router, private renderer: Renderer2) {}
 
   ngOnInit() {
@@ -36,10 +38,13 @@ export class MenuComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngAfterViewInit() {
     setTimeout(() => {
-      this.initHeroAnimations();
-      this.initMenuItemsAnimations();
-      this.initCateringAnimations();
-    }, 100);
+      this.ctx = gsap.context(() => {
+        this.initHeroAnimations();
+        this.initMenuItemsAnimations();
+        this.initCateringAnimations();
+      });
+      ScrollTrigger.refresh();
+    }, 150);
   }
 
   private initHeroAnimations() {
@@ -133,7 +138,7 @@ export class MenuComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    ScrollTrigger.getAll().forEach(st => st.kill());
+    this.ctx?.revert();
   }
 
   onBookStand() {
