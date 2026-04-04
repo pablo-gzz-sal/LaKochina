@@ -1,57 +1,55 @@
-// @keyframes marquee {
-//     0% {
-//       transform: translateX(10%);
-//     }
-//     100% {
-//       transform: translateX(-100%);
-//     }
-//   }
-
-//   /* Apply the animation to the scrolling banner */
-//   .animated-marquee {
-//     animation: marquee 15s linear infinite; /* Adjust the duration as needed */
-//   }
-
-//   /* Add your own styling for each banner item */
-//   .banner-item {
-//     flex-shrink: 0;
-//     padding: 20px;
-//     width: 20%;
-//   }
-
 #container {
   width: 100%;
-  height: 5.5rem;
-  font-family: Montserrat;
+  height: 4.5rem;
+  font-family: 'Anton', sans-serif;
   display: flex;
   position: relative;
   overflow: hidden;
   white-space: nowrap;
-  background: #000;
-  color: #fff;
+  background: #1a0a0e;
+  border-top: 1px solid rgba(249, 101, 159, 0.2);
+  border-bottom: 1px solid rgba(249, 101, 159, 0.2);
 }
+
 #container .scroll {
-  background: #000;
+  background: #1a0a0e;
   display: flex;
   align-items: center;
   justify-content: space-around;
   width: fit-content;
   white-space: nowrap;
-  animation: loop 60s linear infinite;
+  animation: loop 50s linear infinite;
 }
+
+/* Alternate item colors */
+#container .scroll .banner-item:nth-child(odd) {
+  color: #f9659f;
+}
+#container .scroll .banner-item:nth-child(even) {
+  color: #FF8C42;
+}
+
+/* Pepper icon */
+#container .scroll .banner-item i {
+  color: #78344e !important;
+  opacity: 0.7;
+}
+
 .fade {
   width: 100%;
   position: absolute;
   background: linear-gradient(
     90deg,
-    #000,
-    transparent 30%,
-    transparent 90%,
-    #000
+    #1a0a0e 0%,
+    transparent 15%,
+    transparent 85%,
+    #1a0a0e 100%
   );
   inset: 0;
   pointer-events: none;
+  z-index: 2;
 }
+
 @keyframes loop {
   0% {
     transform: translateX(40%);
@@ -63,20 +61,15 @@
 
 #container .scroll#scroll-two {
   transform: translateX(100%);
-  // animation-delay: 1s;
 }
 
 @media screen and (max-width: 720px) {
-  @keyframes loop {
-    0% {
-      transform: translateX(40%);
-    }
-    100% {
-      transform: translateX(-200%);
-    }
+  #container {
+    height: 3.5rem;
   }
 
   #container .scroll {
-    animation: loop 30s linear infinite;
+    animation: loop 25s linear infinite;
+    font-size: 0.875rem;
   }
 }
