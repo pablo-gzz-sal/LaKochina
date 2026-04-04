@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, OnDestroy, Renderer2 } from '@angular/core';
+import { Component, OnInit, AfterViewInit, OnDestroy, Renderer2, ElementRef } from '@angular/core';
 import { FooterComponent } from "../footer/footer.component";
 import { HeaderComponent } from "../header/header.component";
 import { ScrollingBannerComponent } from "../scrolling-banner/scrolling-banner.component";
@@ -21,23 +21,30 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnDestroy {
   infoBannerInsta!: string[];
   private ctx!: gsap.Context;
 
-  constructor(private route: Router, private renderer: Renderer2) {}
+  constructor(private route: Router, private renderer: Renderer2, private el: ElementRef) {}
 
   ngOnInit() {
     this.infoBannerInsta = ['FOLLOW US: @LAKOCHINA512'];
     this.renderer.removeClass(document.body, 'menu-opened');
-    window.scrollTo(0, 0);
   }
 
   ngAfterViewInit() {
+    // Bypass smooth-scroll CSS so the page is truly at 0 before GSAP measures positions
+    document.documentElement.style.scrollBehavior = 'auto';
+    window.scrollTo(0, 0);
+
     setTimeout(() => {
       this.ctx = gsap.context(() => {
         this.initHeroAnimations();
         this.initScrollAnimations();
         this.initHireStandAnimations();
         this.initFounderAnimations();
+      }, this.el);
+      // rAF ensures browser layout is complete before ScrollTrigger calculates positions
+      requestAnimationFrame(() => {
+        ScrollTrigger.refresh();
+        document.documentElement.style.scrollBehavior = '';
       });
-      ScrollTrigger.refresh();
     }, 150);
   }
 
