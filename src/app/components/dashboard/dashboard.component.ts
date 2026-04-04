@@ -2,10 +2,8 @@ import { Component, OnInit, AfterViewInit, OnDestroy, Renderer2 } from '@angular
 import { FooterComponent } from "../footer/footer.component";
 import { HeaderComponent } from "../header/header.component";
 import { ScrollingBannerComponent } from "../scrolling-banner/scrolling-banner.component";
-import { Router, NavigationEnd } from '@angular/router';
+import { Router } from '@angular/router';
 import { HeaderMobileComponent } from "../header-mobile/header-mobile.component";
-import { filter, switchMap } from 'rxjs/operators';
-import { timer } from 'rxjs';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -28,14 +26,7 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnDestroy {
   ngOnInit() {
     this.infoBannerInsta = ['FOLLOW US: @LAKOCHINA512'];
     this.renderer.removeClass(document.body, 'menu-opened');
-    this.route.events
-      .pipe(
-        filter((event) => event instanceof NavigationEnd),
-        switchMap(() => timer(600))
-      )
-      .subscribe(() => {
-        window.scrollTo(0, 0);
-      });
+    window.scrollTo(0, 0);
   }
 
   ngAfterViewInit() {
