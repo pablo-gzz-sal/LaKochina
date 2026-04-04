@@ -45,21 +45,53 @@
 
 <!-- COCHINITA SECTION -->
 <section class="cochinita-section min-h-screen w-full flex flex-col md:flex-row items-stretch">
-  <div class="w-full md:w-6/12 flex flex-col bg-pinkDarker justify-center items-center py-16 md:py-0">
-    <h2 class="dish-title anton text-white text-5xl md:text-7xl uppercase text-center px-6 opacity-0">Cochinita Pibil</h2>
+  <!-- Left: Dark cinematic panel -->
+  <div class="w-full md:w-6/12 flex flex-col bg-dark justify-center items-center py-16 md:py-0 relative overflow-hidden">
+    <!-- Radial glow -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full pointer-events-none" style="background: radial-gradient(circle, rgba(120,52,78,0.35) 0%, transparent 70%);"></div>
+    <!-- Watermark -->
+    <span class="dish-watermark absolute anton text-white select-none pointer-events-none">COCHINITA</span>
+    <!-- Content -->
+    <span class="playfair italic text-pinkMain/60 text-base mb-3 relative z-10 opacity-0 dish-panel-tag">From the Yucatán Peninsula</span>
+    <h2 class="dish-title anton text-white text-5xl md:text-7xl uppercase text-center px-6 relative z-10 opacity-0">Cochinita Pibil</h2>
     <img src="../../../assets/tacoCochinita.png" alt="taco of cochinita"
-      class="dish-img h-[260px] md:h-[320px] w-auto mt-10 opacity-0" />
+      class="dish-img h-[280px] md:h-[360px] w-auto mt-8 relative z-10 opacity-0" />
+    <div class="flex gap-2 mt-6 relative z-10 opacity-0 dish-tags">
+      <span class="dish-tag">Slow-roasted</span>
+      <span class="dish-tag">Citrus · Annatto</span>
+      <span class="dish-tag">Banana Leaf</span>
+    </div>
   </div>
-  <div class="w-full md:w-6/12 flex flex-col items-center md:items-start justify-center md:px-16 py-12 md:py-0 bg-bone">
+  <!-- Right: Content -->
+  <div class="w-full md:w-6/12 flex flex-col items-center md:items-start justify-center md:px-16 py-12 md:py-0 bg-bone relative">
+    <div class="hidden md:block absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-28 rounded-full bg-pinkMain/30"></div>
+    <span class="playfair italic text-pinkMain/60 text-base mb-2 px-6 md:px-0 opacity-0 dish-desc-sub">Our signature dish</span>
     <h2 class="dish-desc-title anton text-pinkMain text-4xl md:text-6xl mb-5 text-center md:text-start px-6 md:px-0 opacity-0">
       EXPERIENCE OUR EXQUISITE COCHINITA TACOS
     </h2>
-    <p class="montserrat mx-6 md:mx-0 text-dark/80 leading-relaxed opacity-0 dish-desc-text">
+    <p class="montserrat mx-6 md:mx-0 text-dark/70 leading-relaxed opacity-0 dish-desc-text">
       Discover the taste of tradition with our Cochinita Pibil, a slow-roasted Mayan pork dish from the Yucatán Peninsula.
       Marinated in citrus juice, annatto seed, and roasted in a píib wrapped in banana leaf. Served with pickles, onions,
       and green salsa.
     </p>
-    <button class="h-[52px] w-11/12 md:w-auto md:px-10 rounded-full text-white bg-pinkMain mt-10 mb-10 md:mb-0 tracking-widest text-sm anton uppercase hover:bg-pinkDarker transition-all duration-300 opacity-0 dish-btn" (click)="onMenu()">
+    <!-- Flavor stats -->
+    <div class="flex gap-6 mx-6 md:mx-0 mt-7 mb-8 opacity-0 dish-stats">
+      <div class="text-center">
+        <p class="anton text-pinkMain text-2xl leading-none">12h</p>
+        <p class="montserrat text-dark/40 text-xs uppercase tracking-widest mt-1">Slow cooked</p>
+      </div>
+      <div class="w-px bg-pinkMain/20 self-stretch"></div>
+      <div class="text-center">
+        <p class="anton text-pinkMain text-2xl leading-none">100%</p>
+        <p class="montserrat text-dark/40 text-xs uppercase tracking-widest mt-1">Authentic</p>
+      </div>
+      <div class="w-px bg-pinkMain/20 self-stretch"></div>
+      <div class="text-center">
+        <p class="anton text-pinkMain text-2xl leading-none">🌶</p>
+        <p class="montserrat text-dark/40 text-xs uppercase tracking-widest mt-1">Mild heat</p>
+      </div>
+    </div>
+    <button class="h-[52px] w-11/12 md:w-auto md:px-10 rounded-full text-white bg-pinkMain mb-10 md:mb-0 tracking-widest text-sm anton uppercase hover:bg-pinkDarker transition-all duration-300 opacity-0 dish-btn" (click)="onMenu()">
       VIEW OUR MENU
     </button>
   </div>
@@ -68,22 +100,54 @@
 <app-scrolling-banner></app-scrolling-banner>
 
 <!-- CHICHARRON SECTION -->
-<section class="chicharron-section min-h-screen w-full flex flex-col md:flex-row items-stretch">
-  <div class="w-full md:w-6/12 flex flex-col bg-pinkMain justify-center items-center py-16 md:py-0">
-    <h2 class="dish-title anton text-white text-5xl md:text-7xl uppercase text-center px-6 opacity-0">CHICHARRON</h2>
+<section class="chicharron-section min-h-screen w-full flex flex-col md:flex-row-reverse items-stretch">
+  <!-- Right (visually): Dark cinematic panel -->
+  <div class="w-full md:w-6/12 flex flex-col bg-dark justify-center items-center py-16 md:py-0 relative overflow-hidden">
+    <!-- Radial glow -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full pointer-events-none" style="background: radial-gradient(circle, rgba(249,101,159,0.2) 0%, transparent 70%);"></div>
+    <!-- Watermark -->
+    <span class="dish-watermark absolute anton text-white select-none pointer-events-none">CHICHARRON</span>
+    <!-- Content -->
+    <span class="playfair italic text-amber/70 text-base mb-3 relative z-10 opacity-0 dish-panel-tag">A timeless classic</span>
+    <h2 class="dish-title anton text-white text-5xl md:text-7xl uppercase text-center px-6 relative z-10 opacity-0">CHICHARRON</h2>
     <img src="../../../assets/chicharronTaco.png" alt="chicharron taco"
-      class="dish-img h-[260px] md:h-[320px] w-auto mt-10 opacity-0" />
+      class="dish-img h-[280px] md:h-[360px] w-auto mt-8 relative z-10 opacity-0" />
+    <div class="flex gap-2 mt-6 relative z-10 opacity-0 dish-tags">
+      <span class="dish-tag dish-tag--amber">Deep-fried</span>
+      <span class="dish-tag dish-tag--amber">Chipotle salsa</span>
+      <span class="dish-tag dish-tag--amber">Crispy</span>
+    </div>
   </div>
-  <div class="w-full md:w-6/12 flex flex-col md:px-16 items-center md:items-start justify-center py-12 md:py-0 bg-bone">
+  <!-- Left (visually): Content -->
+  <div class="w-full md:w-6/12 flex flex-col md:px-16 items-center md:items-start justify-center py-12 md:py-0 bg-bone relative">
+    <div class="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 w-[3px] h-28 rounded-full bg-pinkMain/30"></div>
+    <span class="playfair italic text-pinkDarker/60 text-base mb-2 px-6 md:px-0 opacity-0 dish-desc-sub">Crispy & unforgettable</span>
     <h2 class="dish-desc-title anton text-pinkDarker text-4xl md:text-6xl mb-5 text-center md:text-start px-6 md:px-0 opacity-0">
       TASTE OUR DELICIOUS CHICHARRON TACOS
     </h2>
-    <p class="montserrat mx-6 md:mx-0 text-dark/80 leading-relaxed opacity-0 dish-desc-text">
+    <p class="montserrat mx-6 md:mx-0 text-dark/70 leading-relaxed opacity-0 dish-desc-text">
       Indulge in the timeless delight of Classic Chicharron, deep-fried pork skin seasoned to perfection and traditionally
       fried in its own lard. Accompanied by chipotle salsa, fresh cilantro, and onions. A popular choice for crafting
       mouthwatering tacos.
     </p>
-    <button class="h-[52px] w-11/12 md:w-auto md:px-10 rounded-full text-white bg-pinkMain mt-10 mb-10 md:mb-0 tracking-widest text-sm anton uppercase hover:bg-pinkDarker transition-all duration-300 opacity-0 dish-btn" (click)="onMenu()">
+    <!-- Flavor stats -->
+    <div class="flex gap-6 mx-6 md:mx-0 mt-7 mb-8 opacity-0 dish-stats">
+      <div class="text-center">
+        <p class="anton text-pinkDarker text-2xl leading-none">🔥</p>
+        <p class="montserrat text-dark/40 text-xs uppercase tracking-widest mt-1">Deep fried</p>
+      </div>
+      <div class="w-px bg-pinkMain/20 self-stretch"></div>
+      <div class="text-center">
+        <p class="anton text-pinkDarker text-2xl leading-none">100%</p>
+        <p class="montserrat text-dark/40 text-xs uppercase tracking-widest mt-1">Pork belly</p>
+      </div>
+      <div class="w-px bg-pinkMain/20 self-stretch"></div>
+      <div class="text-center">
+        <p class="anton text-pinkDarker text-2xl leading-none">🌶🌶</p>
+        <p class="montserrat text-dark/40 text-xs uppercase tracking-widest mt-1">Med. heat</p>
+      </div>
+    </div>
+    <button class="h-[52px] w-11/12 md:w-auto md:px-10 rounded-full text-white bg-pinkMain mb-10 md:mb-0 tracking-widest text-sm anton uppercase hover:bg-pinkDarker transition-all duration-300 opacity-0 dish-btn" (click)="onMenu()">
       VIEW OUR MENU
     </button>
   </div>
@@ -165,18 +229,41 @@
 
 <!-- FARMERS MARKET SECTION -->
 <section class="market-section min-h-screen w-full flex flex-col md:flex-row items-stretch">
-  <div class="w-full md:w-6/12 overflow-hidden">
+  <!-- Left: Cinematic image with overlay badge -->
+  <div class="w-full md:w-6/12 relative overflow-hidden min-h-[400px] md:min-h-0">
     <img src="../../../assets/stand.JPG" alt="La Kochina at Circle C Farmers Market"
-      class="market-img w-full h-[400px] md:h-full object-cover" />
+      class="market-img w-full h-full object-cover" />
+    <!-- Dark gradient overlay -->
+    <div class="absolute inset-0 bg-gradient-to-t from-dark via-dark/40 to-transparent"></div>
+    <!-- Floating hours badge -->
+    <div class="absolute bottom-8 left-8 market-badge opacity-0">
+      <div class="glass-card px-6 py-4">
+        <p class="montserrat text-white/50 text-xs uppercase tracking-widest mb-1">Open every</p>
+        <p class="anton text-pinkMain text-3xl leading-none">FRIDAY</p>
+        <p class="montserrat text-white/70 text-sm mt-1">3:00 – 6:00 PM</p>
+      </div>
+    </div>
   </div>
-  <div class="w-full md:w-6/12 flex flex-col justify-center px-8 md:px-16 py-16 bg-pinkDarker">
+  <!-- Right: Content -->
+  <div class="w-full md:w-6/12 flex flex-col justify-center px-8 md:px-16 py-16 bg-pinkDarker relative">
+    <!-- Decorative top border accent -->
+    <div class="absolute top-0 left-0 right-0 h-px" style="background: linear-gradient(90deg, transparent, rgba(249,101,159,0.4), transparent);"></div>
+    <span class="playfair italic text-pinkMain/60 text-base mb-4 opacity-0 market-tag">Circle C · Austin, TX</span>
     <h2 class="market-title anton text-bone text-4xl md:text-6xl mb-6 text-center md:text-start opacity-0">
       FIND US AT THE CIRCLE C FARMERS MARKET
     </h2>
-    <p class="market-desc montserrat uppercase text-white/80 mb-8 leading-relaxed opacity-0">
-      Come visit our tent on Fridays from 3 to 6 pm at the Circle C Farmers Market,
-      7817 Lacrosse Ave. Austin, TX
-    </p>
+    <!-- Address block -->
+    <div class="flex items-start gap-3 mb-6 opacity-0 market-address">
+      <span class="text-pinkMain mt-1 text-lg flex-shrink-0">📍</span>
+      <p class="montserrat text-white/70 leading-relaxed text-sm">
+        7817 Lacrosse Ave.<br />Austin, TX, United States
+      </p>
+    </div>
+    <!-- Hours block -->
+    <div class="flex items-center gap-3 mb-10 opacity-0 market-hours">
+      <span class="text-pinkMain text-lg flex-shrink-0">🕒</span>
+      <p class="montserrat text-white/70 text-sm">Every <span class="text-bone font-semibold">Friday</span> · 3:00 PM – 6:00 PM</p>
+    </div>
     <a href="https://maps.app.goo.gl/PEo1aHcrhJUhhC858" target="_blank" class="opacity-0 market-btn-wrap self-center md:self-start">
       <button class="h-[52px] w-auto px-10 rounded-full text-pinkDarker bg-bone tracking-widest text-sm anton uppercase hover:bg-pinkMain hover:text-white transition-all duration-300">
         Open Google Maps

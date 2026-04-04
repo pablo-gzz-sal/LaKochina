@@ -91,34 +91,49 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnDestroy {
     // Initial states for dish sections
     gsap.set('.dish-title', { y: 40, opacity: 0 });
     gsap.set('.dish-img', { y: 30, scale: 0.95, opacity: 0 });
+    gsap.set('.dish-panel-tag', { y: 15, opacity: 0 });
+    gsap.set('.dish-tags', { y: 15, opacity: 0 });
     gsap.set('.dish-desc-title', { x: 50, opacity: 0 });
+    gsap.set('.dish-desc-sub', { x: 30, opacity: 0 });
     gsap.set('.dish-desc-text', { x: 30, opacity: 0 });
-    gsap.set('.dish-btn', { x: 20, opacity: 0 });
+    gsap.set('.dish-stats', { x: 20, opacity: 0 });
+    gsap.set('.dish-btn', { y: 16, opacity: 0 });
 
     // Cochinita section
     gsap.timeline({
       scrollTrigger: { trigger: '.cochinita-section', start: 'top 75%', once: true }
     })
-      .to('.cochinita-section .dish-title', { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' })
+      .to('.cochinita-section .dish-panel-tag', { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out' })
+      .to('.cochinita-section .dish-title', { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, '-=0.2')
       .to('.cochinita-section .dish-img', { opacity: 1, y: 0, scale: 1, duration: 0.9, ease: 'back.out(1.4)' }, '-=0.4')
-      .to('.cochinita-section .dish-desc-title', { opacity: 1, x: 0, duration: 0.7, ease: 'power3.out' }, '-=0.6')
+      .to('.cochinita-section .dish-tags', { opacity: 1, y: 0, duration: 0.5, ease: 'back.out(1.5)' }, '-=0.3')
+      .to('.cochinita-section .dish-desc-sub', { opacity: 1, x: 0, duration: 0.5, ease: 'power3.out' }, '-=0.6')
+      .to('.cochinita-section .dish-desc-title', { opacity: 1, x: 0, duration: 0.7, ease: 'power3.out' }, '-=0.3')
       .to('.cochinita-section .dish-desc-text', { opacity: 1, x: 0, duration: 0.6, ease: 'power3.out' }, '-=0.4')
-      .to('.cochinita-section .dish-btn', { opacity: 1, x: 0, duration: 0.5, ease: 'back.out(1.7)' }, '-=0.3');
+      .to('.cochinita-section .dish-stats', { opacity: 1, x: 0, duration: 0.6, ease: 'power3.out' }, '-=0.3')
+      .to('.cochinita-section .dish-btn', { opacity: 1, y: 0, duration: 0.5, ease: 'back.out(1.7)' }, '-=0.2');
 
     // Chicharron section
     gsap.timeline({
       scrollTrigger: { trigger: '.chicharron-section', start: 'top 75%', once: true }
     })
-      .to('.chicharron-section .dish-title', { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' })
+      .to('.chicharron-section .dish-panel-tag', { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out' })
+      .to('.chicharron-section .dish-title', { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, '-=0.2')
       .to('.chicharron-section .dish-img', { opacity: 1, y: 0, scale: 1, duration: 0.9, ease: 'back.out(1.4)' }, '-=0.4')
-      .to('.chicharron-section .dish-desc-title', { opacity: 1, x: 0, duration: 0.7, ease: 'power3.out' }, '-=0.6')
+      .to('.chicharron-section .dish-tags', { opacity: 1, y: 0, duration: 0.5, ease: 'back.out(1.5)' }, '-=0.3')
+      .to('.chicharron-section .dish-desc-sub', { opacity: 1, x: 0, duration: 0.5, ease: 'power3.out' }, '-=0.6')
+      .to('.chicharron-section .dish-desc-title', { opacity: 1, x: 0, duration: 0.7, ease: 'power3.out' }, '-=0.3')
       .to('.chicharron-section .dish-desc-text', { opacity: 1, x: 0, duration: 0.6, ease: 'power3.out' }, '-=0.4')
-      .to('.chicharron-section .dish-btn', { opacity: 1, x: 0, duration: 0.5, ease: 'back.out(1.7)' }, '-=0.3');
+      .to('.chicharron-section .dish-stats', { opacity: 1, x: 0, duration: 0.6, ease: 'power3.out' }, '-=0.3')
+      .to('.chicharron-section .dish-btn', { opacity: 1, y: 0, duration: 0.5, ease: 'back.out(1.7)' }, '-=0.2');
 
     // Market section initial states
+    gsap.set('.market-tag', { y: 15, opacity: 0 });
     gsap.set('.market-title', { y: 40, opacity: 0 });
-    gsap.set('.market-desc', { y: 20, opacity: 0 });
+    gsap.set('.market-address', { x: -20, opacity: 0 });
+    gsap.set('.market-hours', { x: -20, opacity: 0 });
     gsap.set('.market-btn-wrap', { y: 20, opacity: 0 });
+    gsap.set('.market-badge', { y: 20, opacity: 0 });
 
     gsap.to('.market-img', {
       scale: 1.08,
@@ -134,9 +149,12 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnDestroy {
     gsap.timeline({
       scrollTrigger: { trigger: '.market-section', start: 'top 70%', once: true }
     })
-      .to('.market-title', { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' })
-      .to('.market-desc', { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' }, '-=0.4')
-      .to('.market-btn-wrap', { opacity: 1, y: 0, duration: 0.5, ease: 'back.out(1.7)' }, '-=0.3');
+      .to('.market-badge', { opacity: 1, y: 0, duration: 0.7, ease: 'back.out(1.5)' })
+      .to('.market-tag', { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out' }, '-=0.3')
+      .to('.market-title', { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, '-=0.2')
+      .to('.market-address', { opacity: 1, x: 0, duration: 0.5, ease: 'power3.out' }, '-=0.3')
+      .to('.market-hours', { opacity: 1, x: 0, duration: 0.5, ease: 'power3.out' }, '-=0.3')
+      .to('.market-btn-wrap', { opacity: 1, y: 0, duration: 0.5, ease: 'back.out(1.7)' }, '-=0.2');
   }
 
   private initHireStandAnimations() {
